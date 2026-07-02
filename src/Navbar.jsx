@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 import { Bolt, Bell, Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -18,7 +19,6 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-container">
-        
         {/* Logo */}
         <div className="logo">
           <div className="logo-icon">⚡</div>
@@ -34,12 +34,11 @@ const Navbar = () => {
           <a href="#">My Leaves</a>
           <a href="#">Apply Leave</a>
           <a href="#">History</a>
-          <a href="#">Approvals</a>
+          <Link to="/auth">Explore</Link>
         </div>
 
         {/* Right Side */}
         <div className="right-section">
-          
           {/* Emergency Button */}
           <button className="emergency-btn" onClick={handleEmergencyLeave}>
             <Bolt size={18} />
