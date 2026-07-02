@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./AuthModal.css";
+import "./Authmodal.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
