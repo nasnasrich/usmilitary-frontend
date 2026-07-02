@@ -1,0 +1,155 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Inter, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  background: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.bg-light {
+  position: absolute;
+  width: 900px;
+  height: 300px;
+  background: linear-gradient(
+    90deg,
+    #ff0066,
+    #ff9500,
+    #ffee00,
+    #00d9ff,
+    #7c4dff
+  );
+  filter: blur(120px);
+  border-radius: 50%;
+}
+
+.auth-modal {
+  width: 450px;
+  padding: 35px;
+  border-radius: 30px;
+  background: rgba(20, 20, 20, 0.45);
+  backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: white;
+}
+
+.tabs {
+  display: flex;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 5px;
+  width: fit-content;
+  border-radius: 40px;
+  margin-bottom: 35px;
+}
+
+.tabs button {
+  border: none;
+  background: transparent;
+  color: #888;
+  padding: 12px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.tabs button.active {
+  background: #111;
+  color: white;
+}
+
+h2 {
+  margin-bottom: 25px;
+}
+
+.name-row {
+  display: flex;
+  gap: 15px;
+}
+
+input {
+  width: 100%;
+  padding: 16px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.password-box {
+  position: relative;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 20px;
+  top: 17px;
+  border: none;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 15px;
+  background: white;
+  color: black;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.divider {
+  text-align: center;
+  margin: 30px 0;
+  color: #888;
+  font-size: 12px;
+}
+
+.social-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.social-buttons button {
+  flex: 1;
+  padding: 15px;
+  border: none;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.06);
+  cursor: pointer;
+}
+
+.remember {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.remember a {
+  color: white;
+  text-decoration: none;
+}
+
+@media (max-width: 550px) {
+  .auth-modal {
+    width: 92%;
+  }
+
+  .name-row {
+    flex-direction: column;
+  }
+}
