@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import "../components/Home.css";
+import { Link } from "react-router-dom";
+
 
 // IMPORT YOUR IMAGES
 import hero1 from "../assets/heroimgone.jpg";
@@ -137,9 +139,11 @@ const leaveInfo = [
           Your dedicated resource for seamless leave processing.
         </h3>
 
-        <button data-aos="fade-up" data-aos-delay="500">
-          Begin Application
-        </button>
+        <Link to="/EmergencyLeave">
+  <button data-aos="fade-up" data-aos-delay="500">
+    Begin Application
+  </button>
+</Link>
 
       </div>
 
