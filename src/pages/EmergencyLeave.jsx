@@ -1,6 +1,6 @@
 import { useState } from "react";
-import "../pages/EmergencyLeave.css";
 import { sendEmail } from "../services/mailController";
+import "../pages/EmergencyLeave.css";
 
 export default function EmergencyLeave() {
   const [form, setForm] = useState({
@@ -14,47 +14,49 @@ export default function EmergencyLeave() {
     phone: "",
     email: "",
 
-    reason: ""
+    reason: "",
   });
 
   const handleChange = (e) => {
     setForm({
       ...form,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
   const submitForm = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    await sendEmail(form);
+    try {
+      // Send application to you
+      await sendEmail("template_rxlvgi7", form);
 
-    alert("Request submitted successfully.");
+      await sendEmail("template_cm1ca9s", form);
 
-    setForm({
-      employeeName: "",
-      employeeAddress: "",
-      employeeId: "",
-      currentLocation: "",
-      applicantName: "",
-      applicantAddress: "",
-      phone: "",
-      email: "",
-      reason: ""
-    });
+      alert(
+        "Your emergency leave application has been submitted successfully.",
+      );
 
-  } catch (err) {
-    console.error(err);
-    alert("Submission failed.");
-  }
-};
+      setForm({
+        employeeName: "",
+        employeeAddress: "",
+        employeeId: "",
+        currentLocation: "",
+        applicantName: "",
+        applicantAddress: "",
+        phone: "",
+        email: "",
+        reason: "",
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Submission failed.");
+    }
+  };
 
   return (
     <div className="leave-container">
-
       <form className="leave-form" onSubmit={submitForm}>
-
         <h1>Leave Request</h1>
 
         <h3>Employee Information</h3>
@@ -126,12 +128,8 @@ export default function EmergencyLeave() {
           onChange={handleChange}
         />
 
-        <button type="submit">
-          Submit Request
-        </button>
-
+        <button type="submit">Submit Request</button>
       </form>
-
     </div>
   );
 }
