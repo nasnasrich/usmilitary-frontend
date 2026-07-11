@@ -1,0 +1,71 @@
+.application{
+background:#0d1117;
+min-height:100vh;
+padding:70px 20px;
+}
+
+.application form{
+max-width:900px;
+margin:auto;
+background:#171b22;
+padding:40px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,0,0,.3);
+}
+
+.application h1{
+color:#ffc72c;
+text-align:center;
+margin-bottom:40px;
+}
+
+.group{
+margin-bottom:35px;
+}
+
+.group h2{
+color:#fff;
+margin-bottom:20px;
+font-size:22px;
+}
+
+.application input,
+.application textarea,
+.application select{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+background:#232933;
+border:1px solid #333;
+border-radius:8px;
+color:#fff;
+font-size:16px;
+outline:none;
+}
+
+.application input:focus,
+.application textarea:focus,
+.application select:focus{
+border-color:#ffc72c;
+}
+
+.application textarea{
+resize:vertical;
+}
+
+.application button{
+width:100%;
+padding:16px;
+background:#ffc72c;
+color:#000;
+border:none;
+border-radius:8px;
+font-size:18px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.application button:hover{
+background:#ffb400;
+}

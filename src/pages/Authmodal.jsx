@@ -75,7 +75,7 @@ function AuthModal() {
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
       // Navigate to dashboard
-      navigate("/");
+      navigate("/EmergencyLeave");
 
       console.log(res.data);
     } catch (err) {

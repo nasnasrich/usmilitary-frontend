@@ -11,7 +11,7 @@ import hero2 from "../assets/heroimgtwo.jpg";
 
 import fege from "../assets/fege.jpg";
 
-import flightImg from "../assets/flight.jpg";
+import takeoff from "../assets/takeoff.jpg";
 import callImg from "../assets/call.jpg";
 import shoppingImg from "../assets/shopping.jpg";
 import supportImg from "../assets/support.jpg";
@@ -23,6 +23,8 @@ function Home() {
   const images = [hero1, hero2 ];
 
   const [currentImage, setCurrentImage] = useState(0);
+
+  const [activeIndex, setActiveIndex] = useState(0);
 
   // AOS ANIMATION
   useEffect(() => {
@@ -47,7 +49,7 @@ function Home() {
 
     const serviceCards = [
     {
-      image: flightImg,
+      image: takeoff,
       title: "Book a Flight",
       description:
         "Facilitate travel arrangements for a service member's approved leave.",
@@ -89,6 +91,24 @@ function Home() {
   {
     title: "Remember Your Service",
     text: `Memorial Day is a time to celebrate and appreciate fallen soldiers. It is very important, especially on military holidays. Even if they've passed, you can still celebrate their life and service by placing a flag on their grave.`,
+  },
+];
+
+const leaveInfo = [
+  {
+    title: "Managing Military Leave and Military Family Leave",
+    content:
+      "Encourages service members to take leave whenever possible; however, it's not always possible due to deployments and operational commitments. Extensions may be granted for long deployments when necessary.",
+  },
+  {
+    title: "Family and Medical Leave Act (FMLA)",
+    content:
+      "The Family and Medical Leave Act provides eligible service members with leave to manage qualifying family-related military responsibilities, including active-duty obligations.",
+  },
+  {
+    title: "Restored Annual Leave",
+    content:
+      "All restored annual leave must be scheduled and used before the end of the leave year ending two years from the year it was earned.",
   },
 ];
 
@@ -325,6 +345,35 @@ function Home() {
   </div>
 </section>
 </div>
+
+<section className="leaveSection">
+  <div className="leaveContainer">
+    {leaveInfo.map((item, index) => (
+      <div className="leaveItem" key={index}>
+        <button
+          className="leaveHeader"
+          onClick={() =>
+            setActiveIndex(activeIndex === index ? -1 : index)
+          }
+        >
+          <span>{item.title}</span>
+
+          <span className={`arrow ${activeIndex === index ? "open" : ""}`}>
+            ▼
+          </span>
+        </button>
+
+        <div
+          className={`leaveContent ${
+            activeIndex === index ? "active" : ""
+          }`}
+        >
+          <p>{item.content}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
     </div>
   );

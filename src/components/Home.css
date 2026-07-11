@@ -334,6 +334,7 @@ padding-top: 8vh;
   text-align: center;
   color: #f5b942;
   font-size: 2.5rem;
+  margin-top: 2vh;
   margin-bottom: 50px;
 }
 
@@ -357,7 +358,7 @@ padding-top: 8vh;
 
 .cardImage {
   width: 100%;
-  height: 180px;
+  height: 190px;
   object-fit: cover;
 }
 
@@ -368,7 +369,7 @@ padding-top: 8vh;
 
 .cardContent h2 {
   color: #f5b942;
-  font-size: 2rem;
+  font-size: 22px;
   margin-bottom: 20px;
 }
 
@@ -449,6 +450,70 @@ padding-top: 8vh;
   color: #cfcfcf;
   line-height: 1.8;
   font-size: 1.05rem;
+}
+
+
+
+
+.leaveSection {
+  background: #0d0d0d;
+  padding: 80px 20px;
+}
+
+.leaveContainer {
+  max-width: 1200px;
+  margin: auto;
+  background: #171717;
+  border: 1px solid #333;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.leaveItem {
+  border-bottom: 1px solid #333;
+}
+
+.leaveItem:last-child {
+  border-bottom: none;
+}
+
+.leaveHeader {
+  width: 100%;
+  background: transparent;
+  color: #ffc72c;
+  border: none;
+  padding: 28px;
+  font-size: 30px;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  text-align: left;
+}
+
+.leaveContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height .4s ease, padding .4s ease;
+  color: #d0d0d0;
+  font-size: 20px;
+  line-height: 1.8;
+  padding: 0 28px;
+}
+
+.leaveContent.active {
+  max-height: 250px;
+  padding: 0 28px 28px;
+}
+
+.arrow {
+  transition: .3s;
+  font-size: 18px;
+}
+
+.arrow.open {
+  transform: rotate(180deg);
 }
 
 
