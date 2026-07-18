@@ -17,6 +17,7 @@ import takeoff from "../assets/takeoff.jpg";
 import callImg from "../assets/call.jpg";
 import shoppingImg from "../assets/shopping.jpg";
 import supportImg from "../assets/support.jpg";
+import { color } from "framer-motion";
 
 
 function Home() {
@@ -125,7 +126,7 @@ const leaveInfo = [
         style={{
           backgroundImage: `url(${images[currentImage]})`,
         }}
-      >
+      > 
 
         {/* DARK OVERLAY */}
         <div className="overlay"></div>
@@ -175,8 +176,7 @@ const leaveInfo = [
               <span className="step-number">01</span>
               <h2>Enter Member ID</h2>
               <p>
-                Begin by entering the service member's official ID
-                number in the secure portal below to locate their profile.
+                Begin by entering the service member's official ID number in the secure portal below to quickly locate and access their verified profile.
               </p>
             </div>
 
@@ -188,7 +188,7 @@ const leaveInfo = [
               <span className="step-number">02</span>
               <h2>Verify Profile</h2>
               <p>
-                Confirm the details on the member's ID card profile.
+                Carefully review the member's profile information to confirm that all identification details are accurate before continuing.
               </p>
             </div>
 
@@ -200,7 +200,7 @@ const leaveInfo = [
               <span className="step-number">03</span>
               <h2>Select Service</h2>
               <p>
-                Choose from available support services.
+                Choose the support service that best matches your request from the list of available military assistance options.
               </p>
             </div>
 
@@ -212,7 +212,7 @@ const leaveInfo = [
               <span className="step-number">04</span>
               <h2>Submit Form</h2>
               <p>
-                Complete and submit your request.
+                Complete all required fields, review your information for accuracy, and submit your request for processing.
               </p>
             </div>
 
@@ -269,22 +269,22 @@ const leaveInfo = [
       <div className="coreValues">
         <h2>Core Values</h2>
 
-        <ul>
-          <li>
-            <strong>Integrity:</strong> Upholding the highest standards
-            of verification and trust.
+        {/* <ul> */}
+          <li><p>
+             Integrity: Upholding the highest standards
+            of verification and trust.</p>
           </li>
 
-          <li>
-            <strong>Efficiency:</strong> Providing timely processing
-            of all requests.
+          <li> <p>
+             Efficiency: Providing timely processing
+            of all requests.</p>
           </li>
 
-          <li>
-            <strong>Support:</strong> Offering unwavering support
-            to service members and their families.
+          <li> <p>
+            Support: Offering unwavering support
+            to service members and their families.</p>
           </li>
-        </ul>
+        {/* </ul> */}
       </div>
     </div>
 
@@ -318,7 +318,7 @@ const leaveInfo = [
 
           <p>{card.description}</p>
 
-          <button>{card.button}</button>
+        <Link to="/Application"><button>{card.button}</button></Link>
         </div>
       </div>
     ))}

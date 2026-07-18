@@ -1,139 +1,277 @@
-.footer {
+/* ==========================
+   Footer
+========================== */
+
+.ef-footer {
   background: #0f172a;
   color: #ddd;
   padding-top: 50px;
   margin-top: 2px;
-   box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
-
+  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.footer-container {
+.ef-footer-container {
   max-width: 1200px;
+  width: 100%;
   margin: auto;
   padding: 0 20px 40px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1.2fr 1fr 1fr;
   gap: 40px;
 }
 
-/* Brand */
-.footer-brand p {
+/* ==========================
+   Brand
+========================== */
+
+.ef-footer-brand p {
   margin-top: 15px;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.7;
   color: #aaa;
 }
 
-.footer-logo {
+.ef-footer-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.logo-icon {
+.ef-logo-icon {
   background: red;
+  color: #fff;
   padding: 8px;
   border-radius: 8px;
-  color: white;
 }
 
-.logo-text {
+.ef-logo-text {
   font-size: 20px;
   font-weight: bold;
 }
 
-.logo-text .red {
+.ef-logo-text .black {
+  color: #fff;
+}
+
+.ef-logo-text .red {
   color: red;
 }
 
-/* Links */
-.footer-links {
+/* ==========================
+   Links
+========================== */
+
+.ef-footer-links {
   display: flex;
   justify-content: space-between;
+  gap: 30px;
 }
 
-.footer-links h4 {
-  margin-bottom: 10px;
-  color: white;
+.ef-footer-links h4 {
+  margin-bottom: 12px;
+  color: #fff;
 }
 
-.footer-links a {
+.ef-footer-links a {
   display: block;
   text-decoration: none;
   color: #aaa;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
   font-size: 14px;
+  transition: 0.3s;
 }
 
-.footer-links a:hover {
+.ef-footer-links a:hover {
   color: red;
 }
 
-/* Newsletter */
-.footer-newsletter h4 {
-  color: white;
+/* ==========================
+   Newsletter
+========================== */
+
+.ef-footer-newsletter h4 {
+  color: #fff;
 }
 
-.footer-newsletter p {
-  font-size: 14px;
+.ef-footer-newsletter p {
   margin: 10px 0;
+  font-size: 14px;
   color: #aaa;
 }
 
-.newsletter-box {
+.ef-newsletter-box {
   display: flex;
-  margin-top: 10px;
+  width: 100%;
+  margin-top: 12px;
 }
 
-.newsletter-box input {
+.ef-newsletter-box input {
   flex: 1;
-  padding: 10px;
+  height: 50px;
+  padding: 0 15px;
   border: none;
   outline: none;
+  font-size: 14px;
   border-radius: 6px 0 0 6px;
 }
 
-.newsletter-box button {
-  background: red;
+.ef-newsletter-box button {
+  width: 55px;
+  height: 50px;
   border: none;
-  padding: 0 15px;
-  color: white;
+  background: red;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-radius: 0 6px 6px 0;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
-/* Socials */
-.socials {
+.ef-newsletter-box button:hover {
+  background: #c40000;
+}
+
+/* ==========================
+   Social Icons
+========================== */
+
+.ef-socials {
   display: flex;
-  gap: 10px;
-  margin-top: 15px;
+  gap: 15px;
+  margin-top: 20px;
 }
 
-.socials svg {
+.ef-socials svg {
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.socials svg:hover {
+.ef-socials svg:hover {
   color: red;
 }
 
-/* Bottom */
-.footer-bottom {
+/* ==========================
+   Bottom
+========================== */
+
+.ef-footer-bottom {
   border-top: 1px solid #222;
   text-align: center;
-  padding: 15px;
+  padding: 20px;
   font-size: 13px;
   color: #888;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .footer-container {
+/* ==========================
+   Large Tablets
+========================== */
+
+@media (max-width: 992px) {
+
+  .ef-footer-container {
     grid-template-columns: 1fr;
+    text-align: center;
+    gap: 35px;
   }
 
-  .footer-links {
+  .ef-footer-logo {
+    justify-content: center;
+  }
+
+  .ef-footer-links {
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+
+  .ef-socials {
+    justify-content: center;
+  }
+}
+
+/* ==========================
+   Tablets & Phones
+========================== */
+
+@media (max-width: 768px) {
+
+  .ef-footer {
+    padding-top: 40px;
+  }
+
+  .ef-footer-container {
+    padding: 0 20px 35px;
+    gap: 30px;
+  }
+
+  .ef-footer-links {
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+  }
+
+ .ef-newsletter-box {
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ef-newsletter-box input,
+.ef-newsletter-box button {
+  width: 100%;
+  height: 50px;
+  border-radius: 6px;
+}
+
+  .ef-footer-brand p,
+  .ef-footer-newsletter p {
+    font-size: 13px;
+  }
+
+  .ef-logo-text {
+    font-size: 18px;
+  }
+
+  .ef-footer-bottom {
+    font-size: 12px;
+  }
+}
+
+/* ==========================
+   Small Phones
+========================== */
+
+@media (max-width: 480px) {
+
+  .ef-footer-container {
+    padding: 0 15px 30px;
+  }
+
+  .ef-logo-icon {
+    padding: 7px;
+  }
+
+  .ef-logo-text {
+    font-size: 17px;
+  }
+
+  .ef-footer-links h4,
+  .ef-footer-newsletter h4 {
+    font-size: 16px;
+  }
+
+  .ef-footer-links a {
+    font-size: 13px;
+  }
+
+  .ef-newsletter-box input,
+  .ef-newsletter-box button {
+    font-size: 14px;
+  }
+
+  .ef-socials {
+    justify-content: center;
     gap: 20px;
   }
 }

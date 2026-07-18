@@ -108,7 +108,9 @@ padding-top: 8vh;
 }
 
 .container h1 {
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+  font-family:initial;
+  text-decoration: underline;
   font-size: 2rem;
   color: #f7b500;
   margin-bottom: 20px;
@@ -124,10 +126,20 @@ padding-top: 8vh;
   margin-bottom: 70px;
 }
 
+.container  .subtitle{
+  font-family: initial;
+  text-align: center;
+  width: 54%;
+}
+
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 35px;
+  margin: 5%;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .card {
@@ -160,7 +172,8 @@ padding-top: 8vh;
 }
 
 .card h2 {
-  font-family: 'Orbitron', sans-serif;
+ font-family:initial;
+  text-decoration: underline;
   font-size: 1.3rem;
   /* margin:10px; */
   line-height: 1.4;
@@ -172,6 +185,7 @@ padding-top: 8vh;
 
 .card p {
   font-size: 1.2rem;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   line-height: 1.8;
   /* margin: 15px; */
   color: #d0d0d0;
@@ -180,7 +194,7 @@ padding-top: 8vh;
 
 .idApplication {
   background: #141a10;
-  padding: 50px 0px;
+  padding: 10px 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -194,14 +208,19 @@ padding-top: 8vh;
 
 .idApplicationContent h1 {
   color: #f4b321;
-  font-size: 4rem;
+  font-family: initial;
+  font-size: 2rem;
   font-weight: 700;
+  text-decoration: underline;
+  padding-top: 2vh;
   margin-bottom: 25px;
 }
 
 .idApplicationContent p {
   color: #fff;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  font-family: initial;
+  text-align: center;
   line-height: 1.8;
   margin-bottom: 40px;
 }
@@ -219,6 +238,7 @@ padding-top: 8vh;
 
 .searchContainer input {
   flex: 1;
+  color: #000;
   border: none;
   outline: none;
   padding: 22px 25px;
@@ -276,12 +296,16 @@ padding-top: 8vh;
 .serviceText h1 {
   color: #f5b942;
   font-size: 30px;
+  text-align: center;
+  text-decoration: underline;
   line-height: 1.1;
   margin-bottom: 20px;
 }
 
 .serviceText p {
   color: #d9d9d9;
+  font-family: initial;
+  text-align: center;
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 30px;
@@ -296,16 +320,20 @@ padding-top: 8vh;
 .coreValues h2 {
   color: #f5b942;
   margin-bottom: 20px;
+  text-decoration: underline;
+  text-align: center;
 }
 
 .coreValues ul {
   color: white;
   padding-left: 20px;
+  font-family: initial;
 }
 
 .coreValues li {
   margin-bottom: 15px;
   line-height: 1.7;
+  font-size: 1.5px;
 }
 
 .serviceImage {
@@ -317,6 +345,7 @@ padding-top: 8vh;
   max-width: 400px;
   border-radius: 4px;
   object-fit: cover;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
 
   /* border-radius: 20px;
   border: 3px solid #f5b942;
@@ -334,6 +363,8 @@ padding-top: 8vh;
   text-align: center;
   color: #f5b942;
   font-size: 2.5rem;
+  font-family: initial;
+  text-decoration: underline;
   margin-top: 2vh;
   margin-bottom: 50px;
 }
@@ -346,10 +377,13 @@ padding-top: 8vh;
 
 .serviceCard {
   background: #0f1116;
-  border-radius: 20px;
+  border-radius: 5px;
   overflow: hidden;
   border: 1px solid #232323;
   transition: 0.3s ease;
+  margin-bottom: 5vh;
+  margin-left: 2%;
+  margin-right: 2%;
 }
 
 .serviceCard:hover {
@@ -370,11 +404,13 @@ padding-top: 8vh;
 .cardContent h2 {
   color: #f5b942;
   font-size: 22px;
+  font-family: initial;
   margin-bottom: 20px;
 }
 
 .cardContent p {
   color: #d5d5d5;
+  font-family: initial;
   line-height: 1.8;
   min-height: 120px;
 }
@@ -399,11 +435,15 @@ padding-top: 8vh;
 
 
 .supportingSection {
-  padding: 80px 5%;
+  padding: 20px 5%;
   background-image: url("../assets/background.jpg");
   background-size: cover;
   background-position: center;
   position: relative;
+  border: 1px solid rgb(239, 250, 38);
+  box-shadow: 4px 4px 5px rgb(30, 30, 31);
+  margin-left:6px;
+  margin-right: 4px;
 }
 
 .supportingSection::before {
@@ -422,7 +462,15 @@ padding-top: 8vh;
   text-align: center;
   color: #f5b942;
   font-size: 3rem;
-  margin-bottom: 50px;
+  /* margin-bottom: 50px; */
+}
+
+.supportingSection h1{
+ padding-top: 0%;
+ margin-top: 0%;
+ text-decoration: underline;
+ font-family: initial;
+ font-size: 40px;
 }
 
 .supportingGrid {
@@ -434,6 +482,7 @@ padding-top: 8vh;
 .supportingCard {
   background: rgba(15, 15, 15, 0.9);
   border: 1px solid #333;
+  margin-top: 4vh;
   border-radius: 15px;
   padding: 35px;
   min-height: 320px;
@@ -441,7 +490,8 @@ padding-top: 8vh;
 
 .supportingCard h2 {
   color: #f5b942;
-  font-size: 2rem;
+  font-size: 1.4rem;
+  font-family:serif;
   margin-bottom: 25px;
   line-height: 1.3;
 }
@@ -450,6 +500,7 @@ padding-top: 8vh;
   color: #cfcfcf;
   line-height: 1.8;
   font-size: 1.05rem;
+  font-family: initial;
 }
 
 
@@ -483,7 +534,8 @@ padding-top: 8vh;
   color: #ffc72c;
   border: none;
   padding: 28px;
-  font-size: 30px;
+  font-size: 22px;
+  font-family:monospace;
   font-weight: 700;
   display: flex;
   justify-content: space-between;
@@ -497,7 +549,8 @@ padding-top: 8vh;
   overflow: hidden;
   transition: max-height .4s ease, padding .4s ease;
   color: #d0d0d0;
-  font-size: 20px;
+  font-size: 15px;
+  font-family: initial;
   line-height: 1.8;
   padding: 0 28px;
 }

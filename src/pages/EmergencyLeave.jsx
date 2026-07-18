@@ -25,35 +25,37 @@ export default function EmergencyLeave() {
   };
 
   const submitForm = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      // Send application to you
-      await sendEmail("template_rxlvgi7", form);
+  try {
+    await sendEmail("template_rxlvgi7", form);
+    await sendEmail("template_cm1ca9s", form);
 
-      await sendEmail("template_cm1ca9s", form);
+    alert("Your emergency leave application has been submitted successfully.");
 
-      alert(
-        "Your emergency leave application has been submitted successfully.",
-      );
+    setForm({
+      employeeName: "",
+      employeeAddress: "",
+      employeeId: "",
+      currentLocation: "",
+      applicantName: "",
+      applicantAddress: "",
+      phone: "",
+      email: "",
+      reason: "",
+    });
+  } catch (err) {
+    console.error("EmailJS Error:", err);
 
-      setForm({
-        employeeName: "",
-        employeeAddress: "",
-        employeeId: "",
-        currentLocation: "",
-        applicantName: "",
-        applicantAddress: "",
-        phone: "",
-        email: "",
-        reason: "",
-      });
-    } catch (err) {
-      console.error(err);
-      alert("Submission failed.");
-    }
-  };
+    alert(
+      `Status: ${err.status || "Unknown"}\nMessage: ${
+        err.text || err.message || "Unknown error"
+      }`
+    );
+  }
+}; // <-- This closing brace was missing
 
+5
   return (
     <div className="leave-container">
       <form className="leave-form" onSubmit={submitForm}>

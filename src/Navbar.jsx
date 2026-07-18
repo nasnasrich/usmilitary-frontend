@@ -27,61 +27,9 @@ const Navbar = () => {
             <span className="red">Leave</span>
           </div>
         </div>
-
-        {/* Desktop Nav */}
-        <div className="nav-links">
-          <a href="#">Dashboard</a>
-          <a href="#">My Leaves</a>
-          <a href="#">Apply Leave</a>
-          <a href="#">History</a>
-          <Link to="/auth">Explore</Link>
         </div>
 
-        {/* Right Side */}
-        <div className="right-section">
-          {/* Emergency Button */}
-          <button className="emergency-btn" onClick={handleEmergencyLeave}>
-            <Bolt size={18} />
-            EMERGENCY
-          </button>
-
-          {/* Notification */}
-          <div className="notification">
-            <Bell size={20} />
-            <span className="badge">3</span>
-          </div>
-
-          {/* Profile */}
-          <div className="profile">
-            <div className="profile-text">
-              <p>John Doe</p>
-              <span>EMP-3921</span>
-            </div>
-            <div className="avatar">JD</div>
-          </div>
-
-          {/* Mobile Toggle */}
-          <button className="menu-btn" onClick={toggleMobileMenu}>
-            {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
-          </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="mobile-menu">
-          <a href="#">Dashboard</a>
-          <a href="#">My Leaves</a>
-          <a href="#">Apply Leave</a>
-          <a href="#">History</a>
-          <a href="#">Approvals</a>
-
-          <button className="mobile-emergency" onClick={handleEmergencyLeave}>
-            <Bolt size={20} />
-            APPLY EMERGENCY LEAVE
-          </button>
-        </div>
-      )}
+     
     </nav>
   );
 };

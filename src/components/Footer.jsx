@@ -3,25 +3,27 @@ import { Mail, Globe, Send } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="footer">
-      <div className="footer-container">
+    <footer className="ef-footer">
+      <div className="ef-footer-container">
 
         {/* Brand */}
-        <div className="footer-brand">
-          <div className="footer-logo">
-            <span className="logo-icon">⚡</span>
-            <span className="logo-text">
+        <div className="ef-footer-brand">
+          <div className="ef-footer-logo">
+            <span className="ef-logo-icon">⚡</span>
+            <span className="ef-logo-text">
               <span className="black">Emerg</span>
               <span className="red">Leave</span>
             </span>
           </div>
+
           <p>
-            Fast and reliable emergency leave management system for employees and organizations.
+            Fast and reliable emergency leave management system for employees
+            and organizations.
           </p>
         </div>
 
         {/* Links */}
-        <div className="footer-links">
+        <div className="ef-footer-links">
           <div>
             <h4>Company</h4>
             <a href="#">About</a>
@@ -45,28 +47,35 @@ const Footer = () => {
         </div>
 
         {/* Newsletter */}
-        <div className="footer-newsletter">
+        <div className="ef-footer-newsletter">
           <h4>Stay Updated</h4>
           <p>Get updates and important alerts.</p>
-          <div className="newsletter-box">
-            <input type="email" placeholder="Enter your email" />
+
+          <div className="ef-newsletter-box">
+            <input
+              type="email"
+              placeholder="Enter your email"
+            />
+
             <button>
               <Mail size={18} />
             </button>
           </div>
 
-          {/* Socials */}
-          <div className="socials">
-  <Globe size={18} />
-  <Send size={18} />
-  <Mail size={18} />
-</div>
+          {/* Social Icons */}
+          <div className="ef-socials">
+            <Globe size={18} />
+            <Send size={18} />
+            <Mail size={18} />
+          </div>
         </div>
       </div>
 
       {/* Bottom */}
-      <div className="footer-bottom">
-        <p>© {new Date().getFullYear()} EmergLeave. All rights reserved.</p>
+      <div className="ef-footer-bottom">
+        <p>
+          © {new Date().getFullYear()} EmergLeave. All rights reserved.
+        </p>
       </div>
     </footer>
   );
