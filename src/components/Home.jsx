@@ -135,10 +135,10 @@ const leaveInfo = [
           U.S. Military Leave Department
         </h1>
 
-        <h3 data-aos="fade-up" data-aos-delay="300">
+        <p data-aos="fade-up" data-aos-delay="300">
           Supporting Our Heroes, Connecting Their Families.
           Your dedicated resource for seamless leave processing.
-        </h3>
+        </p>
 
         <Link to="/EmergencyLeave">
   <button data-aos="fade-up" data-aos-delay="500">
@@ -157,15 +157,13 @@ const leaveInfo = [
             A Four-Step Process for All Support Requests
           </h1>
 
-          <p
-            className="subtitle"
-            data-aos="fade-up"
-          >
-            We are steadfast in our dedication to providing
+          <div className="subtitle" data-aos="fade-up">
+           <p> We are steadfast in our dedication to providing
             a secure, reliable, and compassionate service.
             Every request is handled with the urgency and
             respect our military families deserve.
-          </p>
+            </p>
+          </div>
 
           <div className="cards">
 

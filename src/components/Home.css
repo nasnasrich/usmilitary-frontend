@@ -44,14 +44,15 @@
 
 .homehero h1{
  padding-top: 5vh;
- text-shadow: 2px 3px 2px rgb(20, 20, 112);
+ text-shadow: 2px 3px 2px rgb(12, 12, 12);
  font-family:Georgia, 'Times New Roman', Times, serif;
  font-size: 80px;
 }
 
-.homehero h3 {
+.homehero p {
   max-width: 800px;
   font-size: 1.4rem;
+  color: gold;
   line-height: 1.6;
   margin-bottom: 30px;
 
@@ -59,14 +60,14 @@ padding-top: 8vh;
  font-size: 30px;
  font-family: initial;
  line-height: 1.6;
- text-shadow: 2px 3px 2px rgb(20, 20, 112);
+ text-shadow: 2px 3px 2px rgb(2, 2, 2);
 }
 
 .homehero button {
   padding: 14px 30px;
   border: none;
   border-radius: 8px;
-  background: burlywood;
+  background:white;
   color: #000;
   font-size: 1rem;
   font-weight: 600;
@@ -256,23 +257,6 @@ padding-top: 8vh;
 .searchContainer button:hover {
   background: #f5f5f5;
 }
-
-@media (max-width: 768px) {
-  .idApplicationContent h1 {
-    font-size: 2.5rem;
-  }
-
-  .idApplicationContent p {
-    font-size: 1rem;
-  }
-
-  .searchContainer input {
-    font-size: 1rem;
-    padding: 18px;
-  }
-}
-
-
 
 
 
@@ -582,27 +566,50 @@ padding-top: 8vh;
 
   .homehero{
       background-position: center;
+     height: 75vh; 
   }
 
   .homehero h1{
     font-size: 40px;
+    padding-top: 14vh;
+    padding-bottom: 0%;
+    margin-top: 0%;
+  }
+
+  .homehero p{
+    font-size: 22px;
+    padding-top:3vh;
+    text-decoration: none;
   }
 
   .container h1 {
-    font-size: 2.2rem;
+    font-size: 24px;
   }
 
-  .subtitle {
-    font-size: 1rem;
+
+  .container .subtitle {
+    font-size:18px;
+    width: 80%;
   }
+
+  .subtitle p{
+    font-family: initial;
+    font-size: 20px;
+  }
+
+ 
 
   .cards {
     grid-template-columns: 1fr;
+    padding: 0%;
+    margin-bottom: 0%;
+    height: 210vh;
   }
 
   .card {
     min-height:50vh;
     padding: 40px 25px;
+    height: 0%;
   }
 
   .card h2 {
@@ -610,7 +617,31 @@ padding-top: 8vh;
   }
 
   .card p {
+    font-size: 22px;
+  }
+
+  .idApplication{
+    height: 60vh;
+  }
+
+  .idApplicationContent h1 {
+    font-size: 30px;
+    padding-top:0vh;
+    margin-top: 0vh;
+    padding: 0%;    
+  }
+
+  .idApplicationContent p {
+    font-size: 18px;
+    text-align: center;
+    margin-left: 0%;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .searchContainer input {
     font-size: 1rem;
+    padding: 18px;
   }
 
   .step-number {
@@ -623,15 +654,57 @@ padding-top: 8vh;
   }
 
   .serviceText h1 {
-    font-size: 2rem;
+    font-size:25px;
+    font-family: initial;
+    padding-top: 0%;
+  }
+
+  .serviceText p{
+    font-family: initial;
+    font-size: 18px;
+  }
+
+  .coreValues h2{
+    font-size:30px;
+    font-family: initial;
+    text-align: justify;
+  }
+
+  .coreValues li{
+   text-align: justify;
+   /* width: 90%; */
+  }
+
+  .coreValues p{
+    text-align: justify;
   }
 }
 
-@media (max-width: 992px) {
-  .servicesGrid {
-    grid-template-columns: repeat(2, 1fr);
-  }
+
+.Available h1{
+  font-size: 23px;
+  padding-top: 1vh;
 }
+
+
+.servicesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    /* height: 350vh; */
+  }
+
+  .serviceCard img{
+    height: 55vh;
+    border-radius: 5%;
+    padding: 2%;
+  }
+
+  .serviceCard h2{
+    font-size: 330;
+    font-family: initial;
+  }
+  
+}
+
 
 @media (max-width: 600px) {
   .servicesGrid {
@@ -647,7 +720,7 @@ padding-top: 8vh;
     display: flex;
   }
 }
-}
+
 
 
 
