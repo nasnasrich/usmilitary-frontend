@@ -209,9 +209,7 @@ export default function MilitaryForceSite() {
         <div className="mf-intro-col mf-intro-col--right">
           <h3>EMERGENCY LEAVE ASSISTANCE</h3>
           <p>
-            We provide fast and reliable emergency leave support, helping
-            military personnel with leave processing, travel coordination, and
-            family assistance when it matters most.
+            We provide fast and reliable emergency leave assistance, travel coordination, and family support for active-duty military personnel.
           </p>
         </div>
       </section>
