@@ -194,9 +194,7 @@ export default function MilitaryForceSite() {
         <div className="mf-intro-col">
           <h3>HOW TO REQUEST MILITARY LEAVE</h3>
           <p>
-            Submit your leave request with confidence. Our streamlined process
-            ensures fast, secure, and reliable assistance for eligible service
-            members.
+            Our streamlined process provides fast, secure, and dependable leave assistance for eligible service members.
           </p>
         </div>
         <div className="mf-intro-divider">
