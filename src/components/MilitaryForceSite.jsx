@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Star,
   ChevronLeft,
@@ -9,6 +10,13 @@ import {
   Mail,
   ArrowUp,
 } from "lucide-react";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const NAV_LINKS = [
   { label: "HOME" },
@@ -24,47 +32,79 @@ const NAV_LINKS = [
 
 const GALLERY_CARDS = [
   {
-    title: "Enter Member ID",
-    text: "Begin by entering the service member's official ID number in the secure portal below to quickly locate and access their verified profile.",
+    title: "ENTER MEMBER ID",
+    text: "Enter the service member's ID to securely access their verified profile.",
   },
   {
-    title: "DEVELOPING DISCIPLINE",
-    text: "Sed gravida lobortis congue. Praesent ultricies orci ut enim.",
+    title: "VERIFY PROFILE",
+    text: "Review the member's information to confirm all details are correct.",
     active: true,
   },
   {
-    title: "EDUCATION OF YOUNG MEN",
-    text: "Sed gravida lobortis congue. Praesent ultricies orci ut enim.",
+    title: "SELECT SERVICE",
+    text: "Choose the military support service that matches your request.",
   },
 ];
 
 const NEWS_ITEMS = [
   {
-    title: "NULLAM VULPUTATE VELIT VEL EUISMOD FACILISIS",
-    date: "21 of January, 2015",
+    title: "EMERGENCY LEAVE APPLICATIONS NOW AVAILABLE",
+    date: "15 July, 2026",
   },
   {
-    title: "IN HAC HABITASSE PLATEA DICTUMST, NUNC ORNARE IPSUM",
-    date: "21 of January, 2015",
+    title: "TRAVEL ASSISTANCE SERVICES EXPANDED",
+    date: "10 July, 2026",
     active: true,
   },
   {
-    title: "QUIS FERMENTUM PURUS TINCIDUNT UTIN HAC HABITASSE PLATEA",
-    date: "21 of January, 2015",
+    title: "NEW FAMILY SUPPORT RESOURCES RELEASED",
+    date: "05 July, 2026",
   },
 ];
 
-const WHY_CHOOSE_US = [
-  { num: "1", title: "QUICK EDUCATION" },
-  { num: "2", title: "PROFESSIONAL TEAM" },
-  { num: "3", title: "LATEST TECHNOLOGIES" },
-  { num: "4", title: "MILITARY CAREER" },
+const CORE_VALUES = [
+  {
+    num: "1",
+    title: "INTEGRITY",
+    text: "Protecting every request with confidentiality.",
+  },
+  {
+    num: "2",
+    title: "EFFICIENCY",
+    text: "Processing leave requests without delay.",
+  },
+  {
+    num: "3",
+    title: "RELIABILITY",
+    text: "Providing dependable support every time.",
+  },
+  {
+    num: "4",
+    title: "COMPASSION",
+    text: "Supporting service members and families.",
+  },
 ];
 
-const FOOTER_LINKS = ["HOME", "ABOUT", "INFORMATION", "BLOG", "GALLERY", "CONTACTS"];
+const FOOTER_LINKS = [
+  "HOME",
+  "ABOUT",
+  "INFORMATION",
+  "BLOG",
+  "GALLERY",
+  "CONTACTS",
+];
+
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
 
 export default function MilitaryForceSite() {
   const [galleryIndex, setGalleryIndex] = useState(1);
+  
 
   return (
     <div className="mf-root">
@@ -87,7 +127,8 @@ export default function MilitaryForceSite() {
               <div className="mf-nav-item" key={link.label}>
                 <button
                   className={
-                    "mf-nav-link" + (link.dropdown ? " mf-nav-link--has-drop" : "")
+                    "mf-nav-link" +
+                    (link.dropdown ? " mf-nav-link--has-drop" : "")
                   }
                 >
                   {link.label}
@@ -109,23 +150,35 @@ export default function MilitaryForceSite() {
 
       {/* ===== HERO ===== */}
       <section className="mf-hero">
-        <button className="mf-hero-arrow mf-hero-arrow--left" aria-label="previous slide">
+        <button
+          className="mf-hero-arrow mf-hero-arrow--left"
+          aria-label="previous slide"
+        >
           <ChevronLeft size={20} />
         </button>
-        <button className="mf-hero-arrow mf-hero-arrow--right" aria-label="next slide">
+        <button
+          className="mf-hero-arrow mf-hero-arrow--right"
+          aria-label="next slide"
+        >
           <ChevronRight size={20} />
         </button>
 
         <div className="mf-hero-content">
           <h1>
             U.S. MILITARY <span>Leave Department</span>
-             {/* FAMILY SUPPORT
+            {/* FAMILY SUPPORT
            <span> SERVICES</span> */}
           </h1>
           <p>
-            We proudly support active-duty military personnel by providing reliable emergency leave assistance, travel coordination, communication services, and family support. Our commitment is to deliver secure, efficient, and compassionate service whenever duty calls.
+            We proudly support active-duty military personnel by providing
+            reliable emergency leave assistance, travel coordination,
+            communication services, and family support. Our commitment is to
+            deliver secure, efficient, and compassionate service whenever duty
+            calls.
           </p>
-          <button className="mf-btn mf-btn--primary">JOIN NOW!!</button>
+            <Link to="/auth">
+          <button className="mf-btn mf-btn--primary">APPLY NOW!!</button>
+          </Link>
         </div>
 
         <div className="mf-hero-dots">
@@ -141,7 +194,9 @@ export default function MilitaryForceSite() {
         <div className="mf-intro-col">
           <h3>HOW TO REQUEST MILITARY LEAVE</h3>
           <p>
-            Submit your leave request with confidence. Our streamlined process ensures fast, secure, and reliable assistance for eligible service members.
+            Submit your leave request with confidence. Our streamlined process
+            ensures fast, secure, and reliable assistance for eligible service
+            members.
           </p>
         </div>
         <div className="mf-intro-divider">
@@ -154,7 +209,9 @@ export default function MilitaryForceSite() {
         <div className="mf-intro-col mf-intro-col--right">
           <h3>EMERGENCY LEAVE ASSISTANCE</h3>
           <p>
-            We provide fast and reliable emergency leave support, helping military personnel with leave processing, travel coordination, and family assistance when it matters most.
+            We provide fast and reliable emergency leave support, helping
+            military personnel with leave processing, travel coordination, and
+            family assistance when it matters most.
           </p>
         </div>
       </section>
@@ -168,9 +225,11 @@ export default function MilitaryForceSite() {
         </div>
 
         <div className="mf-leaders-sub">
-        <p>
-          We are steadfast in our dedication to providing a secure, reliable, and compassionate service. Every request is handled with the urgency and respect our military families deserve.
-        </p>
+          <p>
+            We are steadfast in our dedication to providing a secure, reliable,
+            and compassionate service. Every request is handled with the urgency
+            and respect our military families deserve.
+          </p>
         </div>
 
         <div className="mf-gallery">
@@ -178,17 +237,20 @@ export default function MilitaryForceSite() {
             className="mf-gallery-arrow mf-gallery-arrow--left"
             aria-label="previous"
             onClick={() =>
-              setGalleryIndex((i) => (i - 1 + GALLERY_CARDS.length) % GALLERY_CARDS.length)
+              setGalleryIndex(
+                (i) => (i - 1 + GALLERY_CARDS.length) % GALLERY_CARDS.length,
+              )
             }
           >
             <ChevronLeft size={18} />
           </button>
 
           <div className="mf-gallery-track">
-            {GALLERY_CARDS.map((card, i) => (
+            { GALLERY_CARDS.map((card, i) => (
               <div
                 className={
-                  "mf-gallery-card" + (i === galleryIndex ? " mf-gallery-card--active" : "")
+                  "mf-gallery-card" +
+                  (i === galleryIndex ? " mf-gallery-card--active" : "")
                 }
                 key={card.title}
               >
@@ -204,7 +266,9 @@ export default function MilitaryForceSite() {
           <button
             className="mf-gallery-arrow mf-gallery-arrow--right"
             aria-label="next"
-            onClick={() => setGalleryIndex((i) => (i + 1) % GALLERY_CARDS.length)}
+            onClick={() =>
+              setGalleryIndex((i) => (i + 1) % GALLERY_CARDS.length)
+            }
           >
             <ChevronRight size={18} />
           </button>
@@ -214,11 +278,10 @@ export default function MilitaryForceSite() {
       {/* ===== BOTTOM THREE COLUMN ===== */}
       <section className="mf-bottom">
         <div className="mf-bottom-col mf-welcome">
-          <h3>WELCOME TO ACADEMY</h3>
+          <h3>SERVING WITH HONOR</h3>
           <div className="mf-welcome-img" />
           <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-            nisi ut aliquip ex ea commodo consequat exercitation.
+            The U.S. Military Leave Department is a dedicated administrative body established to streamline and manage the leave process for active-duty service members across all branches...
           </p>
           <button className="mf-btn mf-btn--dark">more</button>
         </div>
@@ -239,14 +302,14 @@ export default function MilitaryForceSite() {
         </div>
 
         <div className="mf-bottom-col mf-why">
-          <h3>WHY CHOOSE US</h3>
+          <h3>CORE VALUES</h3>
           <ul>
-            {WHY_CHOOSE_US.map((item) => (
+            {CORE_VALUES.map((item) => (
               <li key={item.num}>
                 <span className="mf-why-num">{item.num}</span>
                 <div>
                   <h5>{item.title}</h5>
-                  <p>Ipsum dolor sit amet consetetur adipiscing elit.</p>
+                  <p>{item.text}</p>
                 </div>
               </li>
             ))}
@@ -266,9 +329,9 @@ export default function MilitaryForceSite() {
               <span className="mf-logo-sub">SAVING THE PEACE</span>
             </div>
           </div>
-          <button className="mf-back-top">
-            <ArrowUp size={16} /> BACK TO TOP
-          </button>
+          <button className="mf-back-top" onClick={scrollToTop}>
+          <ArrowUp size={16} /> BACK TO TOP
+        </button>
         </div>
 
         <div className="mf-footer-grid">
@@ -309,13 +372,27 @@ export default function MilitaryForceSite() {
             <h5>FOLLOW US</h5>
 
             <div className="mf-socials">
-                <a href="#" aria-label="Facebook">Facebook</a>
-                <a href="#" aria-label="Instagram">Instagram</a>
-                <a href="#" aria-label="Twitter">Twitter</a>
-                <a href="#" aria-label="YouTube">YouTube</a>
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Facebook">
+                <FaFacebookF />
+            </a>
+
+            <a href="#" aria-label="Instagram">
+                <FaInstagram />
+            </a>
+
+            <a href="#" aria-label="Twitter">
+                <FaTwitter />
+            </a>
+
+            <a href="#" aria-label="YouTube">
+                <FaYoutube />
+            </a>
+
+            <a href="#" aria-label="LinkedIn">
+                <FaLinkedinIn />
+            </a>
             </div>
-            </div>
+          </div>
         </div>
 
         <div className="mf-footer-bottom">
@@ -336,7 +413,7 @@ const CSS = `
   --mf-cream: #ece3d0;
   --mf-cream-dark: #e0d5bd;
   --mf-near-black: #201f19;
-  --mf-text-dark: #2b2a20;
+  --mf-text-dark: #22202b;
 }
 
 * { box-sizing: border-box; }
@@ -507,6 +584,10 @@ const CSS = `
   margin: 0 auto;
   color: #e9e6d3;
 }
+
+.mf-intro-col {
+   width:85%;
+}
 .mf-intro-col h3 {
   font-size: 17px;
   margin-bottom: 14px;
@@ -514,7 +595,7 @@ const CSS = `
   text-align:center;
 }
 
-.mf-intro-col p { font-size: 12.5px; color: #d9d6c2; }
+.mf-intro-col p { font-size: 12.5px; color: #d9d6c2; text-align: center; }
 .mf-intro-col--right { text-align: right; }
 .mf-intro-divider {
   display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -592,13 +673,14 @@ const CSS = `
   grid-template-columns: 1fr 1fr 1fr;
   gap: 40px;
   padding: 54px 24px;
-  max-width: 1200px;
+//   max-width: 1200px;
   margin: 0 auto;
 }
 .mf-bottom-col h3 {
   font-size: 15px; letter-spacing: 1px; margin-bottom: 20px;
   color: var(--mf-text-dark);
 }
+
 .mf-welcome-img {
   height: 120px; width: 160px;
   background: linear-gradient(135deg, #3a3a2e, #55523f);
@@ -629,10 +711,12 @@ const CSS = `
 /* ===== FOOTER ===== */
 .mf-footer { background: var(--mf-camo-dark); color: #cfcdb9; }
 .mf-footer-top {
-  max-width: 1200px; margin: 0 auto;
+//   max-width: 1200px; margin: 0 auto;
   display: flex; align-items: center; justify-content: space-between;
   padding: 22px 24px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0, 0, 0, 0.45);
+
 }
 .mf-footer-logo { display: flex; align-items: center; gap: 10px; }
 .mf-back-top {
@@ -669,12 +753,15 @@ const CSS = `
 }
 .mf-socials a:hover { background: var(--mf-red); color: #fff; }
 
+
 .mf-footer-bottom {
   text-align: center;
   font-size: 11px;
   padding: 16px;
   border-top: 1px solid rgba(255,255,255,0.08);
   color: #8f8d78;
+    background: rgba(219, 207, 207, 0.08);
+
 }
 
 /* ===== RESPONSIVE ===== */
