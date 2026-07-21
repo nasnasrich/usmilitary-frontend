@@ -679,6 +679,12 @@ const CSS = `
   height: 120px; width: 160px;
   background: linear-gradient(135deg, #3a3a2e, #55523f);
   margin-bottom: 16px;
+
+  background-image: url("/src/assets/serving.jpg"); /* Your image path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 4px; /* Optional */
 }
 .mf-welcome p { font-size: 12.5px; color: #55523f; margin-bottom: 16px; }
 
