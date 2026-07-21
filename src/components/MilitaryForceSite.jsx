@@ -683,7 +683,7 @@ const CSS = `
   background: linear-gradient(135deg, #3a3a2e, #55523f);
   margin-bottom: 16px;
 
-   background-image: url("/public/serving.jpg"); /* Your image path */
+  background-image: url("/serving.jpg"); /* Your image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
