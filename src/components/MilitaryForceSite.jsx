@@ -586,7 +586,7 @@ const CSS = `
 }
 
 .mf-intro-col {
-   width:85%;
+//    width:85%;
 }
 .mf-intro-col h3 {
   font-size: 17px;
