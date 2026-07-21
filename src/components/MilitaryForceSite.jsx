@@ -222,9 +222,7 @@ export default function MilitaryForceSite() {
 
         <div className="mf-leaders-sub">
           <p>
-            We are steadfast in our dedication to providing a secure, reliable,
-            and compassionate service. Every request is handled with the urgency
-            and respect our military families deserve.
+            We provide secure, reliable, and timely assistance, ensuring every request is handled with care and professionalism.
           </p>
         </div>
 
