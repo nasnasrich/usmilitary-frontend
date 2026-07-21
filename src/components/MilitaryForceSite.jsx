@@ -18,6 +18,31 @@ import {
   FaLinkedinIn,
 } from "react-icons/fa";
 
+const HERO_IMAGES = [
+  "/herooneimg.jpg",
+  "/herotwoimg.jpg",
+  "/herothieeimg.jpg",
+  "/herofourimg.jpg",
+];
+
+const CORE_VALUES = [
+  {
+    num: "01",
+    title: "Integrity",
+    text: "We uphold honesty, accountability, and professionalism in every service we provide.",
+  },
+  {
+    num: "02",
+    title: "Commitment",
+    text: "We are dedicated to supporting service members with timely and dependable assistance.",
+  },
+  {
+    num: "03",
+    title: "Respect",
+    text: "Every request is treated with dignity, compassion, and the confidentiality it deserves.",
+  },
+];
+
 const NAV_LINKS = [
   { label: "HOME" },
   { label: "ABOUT" },
@@ -30,21 +55,7 @@ const NAV_LINKS = [
   { label: "CONTACTS" },
 ];
 
-const GALLERY_CARDS = [
-  {
-    title: "ENTER MEMBER ID",
-    text: "Enter the service member's ID to securely access their verified profile.",
-  },
-  {
-    title: "VERIFY PROFILE",
-    text: "Review the member's information to confirm all details are correct.",
-    active: true,
-  },
-  {
-    title: "SELECT SERVICE",
-    text: "Choose the military support service that matches your request.",
-  },
-];
+
 
 const NEWS_ITEMS = [
   {
@@ -62,26 +73,21 @@ const NEWS_ITEMS = [
   },
 ];
 
-const CORE_VALUES = [
+const GALLERY_CARDS = [
   {
-    num: "1",
-    title: "INTEGRITY",
-    text: "Protecting every request with confidentiality.",
+    title: "ENTER MEMBER ID",
+    text: "Enter the service member's ID to securely access their verified profile.",
+    image: "/entermemberid.jpg",
   },
   {
-    num: "2",
-    title: "EFFICIENCY",
-    text: "Processing leave requests without delay.",
+    title: "VERIFY PROFILE",
+    text: "Review the member's information to confirm all details are correct.",
+    image: "/verifyprofile.jpg",
   },
   {
-    num: "3",
-    title: "RELIABILITY",
-    text: "Providing dependable support every time.",
-  },
-  {
-    num: "4",
-    title: "COMPASSION",
-    text: "Supporting service members and families.",
+    title: "SELECT SERVICE",
+    text: "Choose the military support service that matches your request.",
+    image: "/selectservice.jpg",
   },
 ];
 
@@ -103,6 +109,8 @@ const scrollToTop = () => {
 
 export default function MilitaryForceSite() {
   const [galleryIndex, setGalleryIndex] = useState(1);
+
+  const [heroIndex, setHeroIndex] = useState(0);
 
   return (
     <div className="mf-root">
@@ -147,19 +155,44 @@ export default function MilitaryForceSite() {
       </header>
 
       {/* ===== HERO ===== */}
-      <section className="mf-hero">
-        <button
-          className="mf-hero-arrow mf-hero-arrow--left"
-          aria-label="previous slide"
+            <section
+        className="mf-hero"
+        style={{
+            backgroundImage: `
+            linear-gradient(
+                100deg,
+                rgba(20,22,14,.75),
+                rgba(20,22,14,.35),
+                rgba(60,58,40,.15)
+            ),
+            url(${HERO_IMAGES[heroIndex]})
+            `,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+        }}
         >
-          <ChevronLeft size={20} />
-        </button>
         <button
-          className="mf-hero-arrow mf-hero-arrow--right"
-          aria-label="next slide"
-        >
-          <ChevronRight size={20} />
-        </button>
+            className="mf-hero-arrow mf-hero-arrow--left"
+            onClick={() =>
+                setHeroIndex(
+                (heroIndex - 1 + HERO_IMAGES.length) % HERO_IMAGES.length
+                )
+            }
+            >
+            <ChevronLeft size={20} />
+            </button>
+
+        <button
+            className="mf-hero-arrow mf-hero-arrow--right"
+            onClick={() =>
+                setHeroIndex(
+                (heroIndex + 1) % HERO_IMAGES.length
+                )
+            }
+            >
+            <ChevronRight size={20} />
+            </button>
 
         <div className="mf-hero-content">
           <h1>
@@ -180,12 +213,15 @@ export default function MilitaryForceSite() {
         </div>
 
         <div className="mf-hero-dots">
-          <span className="active" />
-          <span />
-          <span />
-          <span />
-        </div>
-      </section>
+            {HERO_IMAGES.map((_, index) => (
+                <span
+                key={index}
+                className={heroIndex === index ? "active" : ""}
+                onClick={() => setHeroIndex(index)}
+                />
+            ))}
+            </div>
+        </section>
 
       {/* ===== TWO COLUMN INTRO ===== */}
       <section className="mf-intro">
@@ -249,12 +285,14 @@ export default function MilitaryForceSite() {
                 }
                 key={card.title}
               >
-                <div className="mf-gallery-img" data-variant={i} />
-                <div className="mf-gallery-caption">
-                  <h4>{card.title}</h4>
-                  <p>{card.text}</p>
-                </div>
-              </div>
+            <div className="mf-gallery-img" style={{
+            backgroundImage: `url(${card.image})`,}}/>                
+            <div className="mf-gallery-caption">
+            <h4>{card.title}</h4>
+            <p>{card.text}</p>
+            </div>
+
+            </div>
             ))}
           </div>
 
@@ -302,15 +340,15 @@ export default function MilitaryForceSite() {
           <h3>CORE VALUES</h3>
           <ul>
             {CORE_VALUES.map((item) => (
-              <li key={item.num}>
+                <li key={item.num}>
                 <span className="mf-why-num">{item.num}</span>
                 <div>
-                  <h5>{item.title}</h5>
-                  <p>{item.text}</p>
+                    <h5>{item.title}</h5>
+                    <p>{item.text}</p>
                 </div>
-              </li>
+                </li>
             ))}
-          </ul>
+            </ul>
         </div>
       </section>
 
@@ -505,10 +543,11 @@ const CSS = `
   min-height: 480px;
   display: flex;
   align-items: center;
-  background:
-    linear-gradient(100deg, rgba(20,22,14,0.75) 0%, rgba(20,22,14,0.35) 45%, rgba(60,58,40,0.15) 100%),
-    repeating-linear-gradient(120deg, #5b5a3f 0 40px, #4a4930 40px 80px, #6e6c47 80px 120px),
-    #4a4930;
+   position: relative;
+  min-height: 480px;
+  display: flex;
+  align-items: center;
+  transition: background-image 0.5s ease-in-out;
 }
 .mf-hero-content {
   position: relative;
@@ -654,9 +693,12 @@ const CSS = `
   height: 170px;
   background: repeating-linear-gradient(60deg, #7a7a56 0 14px, #61613f 14px 28px);
 }
-.mf-gallery-img[data-variant="0"] { background: repeating-linear-gradient(60deg, #8a8560 0 14px, #6b6746 14px 28px); }
-.mf-gallery-img[data-variant="1"] { background: repeating-linear-gradient(60deg, #6f6a49 0 14px, #55503a 14px 28px); }
-.mf-gallery-img[data-variant="2"] { background: repeating-linear-gradient(60deg, #9c9873 0 14px, #7d7959 14px 28px); }
+.mf-gallery-img {
+  height: 255px;
+  background-size: cover;
+  background-position: cover;
+  background-repeat: repeat;
+}
 .mf-gallery-caption { padding: 18px 16px; }
 .mf-gallery-caption h4 { font-size: 13.5px; letter-spacing: 0.5px; margin-bottom: 10px; }
 .mf-gallery-caption p { font-size: 11.5px; color: #b9b7a2; }
