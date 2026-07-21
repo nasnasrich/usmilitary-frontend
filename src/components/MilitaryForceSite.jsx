@@ -94,7 +94,6 @@ const FOOTER_LINKS = [
   "CONTACTS",
 ];
 
-
 const scrollToTop = () => {
   window.scrollTo({
     top: 0,
@@ -104,7 +103,6 @@ const scrollToTop = () => {
 
 export default function MilitaryForceSite() {
   const [galleryIndex, setGalleryIndex] = useState(1);
-  
 
   return (
     <div className="mf-root">
@@ -176,8 +174,8 @@ export default function MilitaryForceSite() {
             deliver secure, efficient, and compassionate service whenever duty
             calls.
           </p>
-            <Link to="/auth">
-          <button className="mf-btn mf-btn--primary">APPLY NOW!!</button>
+          <Link to="/auth">
+            <button className="mf-btn mf-btn--primary">APPLY NOW!!</button>
           </Link>
         </div>
 
@@ -194,7 +192,8 @@ export default function MilitaryForceSite() {
         <div className="mf-intro-col">
           <h3>HOW TO REQUEST MILITARY LEAVE</h3>
           <p>
-            Our streamlined process provides fast, secure, and dependable leave assistance for eligible service members.
+            Our streamlined process provides fast, secure, and dependable leave
+            assistance for eligible service members.
           </p>
         </div>
         <div className="mf-intro-divider">
@@ -207,7 +206,8 @@ export default function MilitaryForceSite() {
         <div className="mf-intro-col mf-intro-col--right">
           <h3>EMERGENCY LEAVE ASSISTANCE</h3>
           <p>
-            We provide fast and reliable emergency leave assistance, travel coordination, and family support for active-duty military personnel.
+            We provide fast and reliable emergency leave assistance, travel
+            coordination, and family support for active-duty military personnel.
           </p>
         </div>
       </section>
@@ -222,7 +222,8 @@ export default function MilitaryForceSite() {
 
         <div className="mf-leaders-sub">
           <p>
-            We provide secure, reliable, and timely assistance, ensuring every request is handled with care and professionalism.
+            We provide secure, reliable, and timely assistance, ensuring every
+            request is handled with care and professionalism.
           </p>
         </div>
 
@@ -240,7 +241,7 @@ export default function MilitaryForceSite() {
           </button>
 
           <div className="mf-gallery-track">
-            { GALLERY_CARDS.map((card, i) => (
+            {GALLERY_CARDS.map((card, i) => (
               <div
                 className={
                   "mf-gallery-card" +
@@ -275,7 +276,9 @@ export default function MilitaryForceSite() {
           <h3>SERVING WITH HONOR</h3>
           <div className="mf-welcome-img" />
           <p>
-            The U.S. Military Leave Department is a dedicated administrative body established to streamline and manage the leave process for active-duty service members across all branches...
+            The U.S. Military Leave Department is a dedicated administrative
+            body established to streamline and manage the leave process for
+            active-duty service members across all branches...
           </p>
           <button className="mf-btn mf-btn--dark">more</button>
         </div>
@@ -324,8 +327,8 @@ export default function MilitaryForceSite() {
             </div>
           </div>
           <button className="mf-back-top" onClick={scrollToTop}>
-          <ArrowUp size={16} /> BACK TO TOP
-        </button>
+            <ArrowUp size={16} /> BACK TO TOP
+          </button>
         </div>
 
         <div className="mf-footer-grid">
@@ -366,25 +369,25 @@ export default function MilitaryForceSite() {
             <h5>FOLLOW US</h5>
 
             <div className="mf-socials">
-            <a href="#" aria-label="Facebook">
+              <a href="#" aria-label="Facebook">
                 <FaFacebookF />
-            </a>
+              </a>
 
-            <a href="#" aria-label="Instagram">
+              <a href="#" aria-label="Instagram">
                 <FaInstagram />
-            </a>
+              </a>
 
-            <a href="#" aria-label="Twitter">
+              <a href="#" aria-label="Twitter">
                 <FaTwitter />
-            </a>
+              </a>
 
-            <a href="#" aria-label="YouTube">
+              <a href="#" aria-label="YouTube">
                 <FaYoutube />
-            </a>
+              </a>
 
-            <a href="#" aria-label="LinkedIn">
+              <a href="#" aria-label="LinkedIn">
                 <FaLinkedinIn />
-            </a>
+              </a>
             </div>
           </div>
         </div>
