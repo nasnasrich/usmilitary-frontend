@@ -10,13 +10,13 @@ import {
   Mail,
   ArrowUp,
 } from "lucide-react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaTwitter,
-  FaYoutube,
-  FaLinkedinIn,
-} from "react-icons/fa";
+// import {
+//   FaFacebookF,
+//   FaInstagram,
+//   FaTwitter,
+//   FaYoutube,
+//   FaLinkedinIn,
+// } from "react-icons/fa";
 
 const HERO_IMAGES = [
   "/herooneimg.jpg",
@@ -43,17 +43,17 @@ const CORE_VALUES = [
   },
 ];
 
-const NAV_LINKS = [
-  { label: "HOME" },
-  { label: "ABOUT" },
-  {
-    label: "INFORMATION",
-    dropdown: ["LOREM IPSUM DOLOR", "ETIAM ET LOREM SED", "AENEAN AC FELIS"],
-  },
-  { label: "BLOG" },
-  { label: "GALLERY" },
-  { label: "CONTACTS" },
-];
+// const NAV_LINKS = [
+//   { label: "HOME" },
+//   { label: "ABOUT" },
+//   {
+//     label: "INFORMATION",
+//     dropdown: ["LOREM IPSUM DOLOR", "ETIAM ET LOREM SED", "AENEAN AC FELIS"],
+//   },
+//   { label: "BLOG" },
+//   { label: "GALLERY" },
+//   { label: "CONTACTS" },
+// ];
 
 
 
@@ -91,21 +91,21 @@ const GALLERY_CARDS = [
   },
 ];
 
-const FOOTER_LINKS = [
-  "HOME",
-  "ABOUT",
-  "INFORMATION",
-  "BLOG",
-  "GALLERY",
-  "CONTACTS",
-];
+// const FOOTER_LINKS = [
+//   "HOME",
+//   "ABOUT",
+//   "INFORMATION",
+//   "BLOG",
+//   "GALLERY",
+//   "CONTACTS",
+// ];
 
-const scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
+// const scrollToTop = () => {
+//   window.scrollTo({
+//     top: 0,
+//     behavior: "smooth",
+//   });
+// };
 
 export default function MilitaryForceSite() {
   const [galleryIndex, setGalleryIndex] = useState(1);
@@ -117,42 +117,7 @@ export default function MilitaryForceSite() {
       <style>{CSS}</style>
 
       {/* ===== HEADER ===== */}
-      <header className="mf-header">
-        <div className="mf-header-inner">
-          <div className="mf-logo">
-            <span className="mf-logo-badge">
-              <Star size={16} strokeWidth={2} fill="#c0392b" color="#c0392b" />
-            </span>
-            <div className="mf-logo-text">
-              <span className="mf-logo-title">MILITARY FORCE</span>
-              <span className="mf-logo-sub">SAVING THE PEACE</span>
-            </div>
-          </div>
-          <nav className="mf-nav">
-            {NAV_LINKS.map((link) => (
-              <div className="mf-nav-item" key={link.label}>
-                <button
-                  className={
-                    "mf-nav-link" +
-                    (link.dropdown ? " mf-nav-link--has-drop" : "")
-                  }
-                >
-                  {link.label}
-                </button>
-                {link.dropdown && (
-                  <div className="mf-dropdown">
-                    {link.dropdown.map((item) => (
-                      <a href="#!" className="mf-dropdown-item" key={item}>
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-        </div>
-      </header>
+      
 
       {/* ===== HERO ===== */}
             <section
@@ -167,7 +132,8 @@ export default function MilitaryForceSite() {
             ),
             url(${HERO_IMAGES[heroIndex]})
             `,
-            backgroundSize: "cover",
+            // backgroundSize: "cover",
+            backgroundSize: "100%",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
         }}
@@ -352,88 +318,7 @@ export default function MilitaryForceSite() {
         </div>
       </section>
 
-      {/* ===== FOOTER ===== */}
-      <footer className="mf-footer">
-        <div className="mf-footer-top">
-          <div className="mf-footer-logo">
-            <span className="mf-logo-badge">
-              <Star size={16} strokeWidth={2} fill="#c0392b" color="#c0392b" />
-            </span>
-            <div className="mf-logo-text">
-              <span className="mf-logo-title">MILITARY FORCE</span>
-              <span className="mf-logo-sub">SAVING THE PEACE</span>
-            </div>
-          </div>
-          <button className="mf-back-top" onClick={scrollToTop}>
-            <ArrowUp size={16} /> BACK TO TOP
-          </button>
-        </div>
-
-        <div className="mf-footer-grid">
-          <div className="mf-footer-nav">
-            {FOOTER_LINKS.map((l) => (
-              <a href="#!" key={l}>
-                {l}
-              </a>
-            ))}
-          </div>
-
-          <div className="mf-footer-block">
-            <h5>LOCATION</h5>
-            <p>
-              <MapPin size={13} /> 8901 Marmora Road,
-              <br />
-              Glasgow, D04 89GR
-            </p>
-            <a href="#!" className="mf-map-link">
-              Map
-            </a>
-          </div>
-
-          <div className="mf-footer-block">
-            <h5>CONTACTS</h5>
-            <p>
-              <Phone size={13} /> Telephone: +1 800 123 1234
-            </p>
-            <p>
-              <Printer size={13} /> Fax: +1 800 123 1234
-            </p>
-            <p>
-              <Mail size={13} /> mail@demosite.com
-            </p>
-          </div>
-
-          <div className="mf-footer-block">
-            <h5>FOLLOW US</h5>
-
-            <div className="mf-socials">
-              <a href="#" aria-label="Facebook">
-                <FaFacebookF />
-              </a>
-
-              <a href="#" aria-label="Instagram">
-                <FaInstagram />
-              </a>
-
-              <a href="#" aria-label="Twitter">
-                <FaTwitter />
-              </a>
-
-              <a href="#" aria-label="YouTube">
-                <FaYoutube />
-              </a>
-
-              <a href="#" aria-label="LinkedIn">
-                <FaLinkedinIn />
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="mf-footer-bottom">
-          Copyright &copy; 2015, Military Force. All rights reserved.
-        </div>
-      </footer>
+     
     </div>
   );
 }
@@ -473,81 +358,15 @@ const CSS = `
 .mf-root ul { list-style: none; margin: 0; padding: 0; }
 .mf-root button { font-family: inherit; cursor: pointer; border: none; background: none; }
 
-/* ===== HEADER ===== */
-.mf-header {
-  background: var(--mf-near-black);
-  border-bottom: 3px solid var(--mf-red);
-  position: relative;
-  z-index: 30;
-}
-.mf-header-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 24px;
-}
-.mf-logo { display: flex; align-items: center; gap: 10px; }
-.mf-logo-badge {
-  width: 32px; height: 32px;
-  border: 2px solid var(--mf-red);
-  border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  flex-shrink: 0;
-}
-.mf-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-.mf-logo-title { color: #fff; font-size: 19px; font-weight: 700; letter-spacing: 1px; }
-.mf-logo-sub { color: var(--mf-red); font-size: 10px; letter-spacing: 2px; }
 
-.mf-nav { display: flex; gap: 6px; }
-.mf-nav-item { position: relative; }
-.mf-nav-link {
-  color: #cfcdbf;
-  font-size: 13px;
-  letter-spacing: 1px;
-  padding: 22px 14px;
-  display: block;
-  transition: background 0.15s, color 0.15s;
-}
-.mf-nav-link:hover, .mf-nav-link--has-drop {
-  background: var(--mf-red);
-  color: #fff;
-}
-.mf-dropdown {
-  position: absolute;
-  top: 100%; left: 0;
-  min-width: 190px;
-  background: var(--mf-red);
-  padding: 6px 0;
-  opacity: 0;
-  visibility: hidden;
-  transform: translateY(6px);
-  transition: all 0.15s;
-}
-.mf-nav-item:hover .mf-dropdown {
-  opacity: 1; visibility: visible; transform: translateY(0);
-}
-.mf-dropdown-item {
-  display: block;
-  padding: 9px 18px;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #f4d9d5;
-}
-.mf-dropdown-item:hover { color: #fff; background: rgba(0,0,0,0.15); }
 
 /* ===== HERO ===== */
 .mf-hero {
   position: relative;
   min-height: 480px;
   display: flex;
-  align-items: center;
-   position: relative;
-  min-height: 480px;
-  display: flex;
-  align-items: center;
-  transition: background-image 0.5s ease-in-out;
+  align-items: center; 
+
 }
 .mf-hero-content {
   position: relative;
@@ -725,7 +544,7 @@ const CSS = `
   background: linear-gradient(135deg, #3a3a2e, #55523f);
   margin-bottom: 16px;
 
-  background-image: url("/serving.jpg"); /* Your image path */
+  background-image: url("/servingwithhonor.jpg"); /* Your image path */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -753,61 +572,7 @@ const CSS = `
 .mf-why h5 { font-size: 12.5px; letter-spacing: 0.5px; margin-bottom: 4px; }
 .mf-why p { font-size: 11.5px; color: #7c765c; }
 
-/* ===== FOOTER ===== */
-.mf-footer { background: var(--mf-camo-dark); color: #cfcdb9; }
-.mf-footer-top {
-//   max-width: 1200px; margin: 0 auto;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 22px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  background: rgba(0, 0, 0, 0.45);
 
-}
-.mf-footer-logo { display: flex; align-items: center; gap: 10px; }
-.mf-back-top {
-  display: flex; align-items: center; gap: 8px;
-  background: var(--mf-red); color: #fff;
-  padding: 10px 18px; font-size: 11px; letter-spacing: 1px; font-weight: 600;
-}
-.mf-back-top:hover { background: var(--mf-red-dark); }
-
-.mf-footer-grid {
-  max-width: 1200px; margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.1fr 1fr 1fr 0.8fr;
-  gap: 24px;
-  padding: 34px 24px;
-}
-.mf-footer-nav { display: flex; flex-direction: column; gap: 10px; }
-.mf-footer-nav a { font-size: 12px; letter-spacing: 1px; color: #cfcdb9; }
-.mf-footer-nav a:hover { color: var(--mf-red); }
-.mf-footer-block h5 {
-  font-size: 12px; letter-spacing: 1px; color: #fff; margin-bottom: 14px;
-}
-.mf-footer-block p {
-  font-size: 11.5px; margin-bottom: 8px; display: flex; gap: 8px; align-items: flex-start;
-  color: #b7b59f;
-}
-.mf-map-link { font-size: 11px; color: var(--mf-red); font-weight: 600; }
-.mf-socials { display: flex; gap: 8px; flex-wrap: wrap; }
-.mf-socials a {
-  width: 28px; height: 28px; border-radius: 50%;
-  background: rgba(255,255,255,0.08);
-  display: flex; align-items: center; justify-content: center;
-  color: #cfcdb9;
-}
-.mf-socials a:hover { background: var(--mf-red); color: #fff; }
-
-
-.mf-footer-bottom {
-  text-align: center;
-  font-size: 11px;
-  padding: 16px;
-  border-top: 1px solid rgba(255,255,255,0.08);
-  color: #8f8d78;
-    background: rgba(219, 207, 207, 0.08);
-
-}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {

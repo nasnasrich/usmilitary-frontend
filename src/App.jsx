@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "../src/Navbar";
 import Home from "./components/Home";
 import MilitaryForceSite from "./components/MilitaryForceSite";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal"; 
 import Application from "../src/components/Application"; 
 import EmergencyLeave from "../src/pages/EmergencyLeave"; 
@@ -23,7 +23,7 @@ function App() {
         </Routes>
       </main>
 
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

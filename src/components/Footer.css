@@ -1,277 +1,178 @@
-/* ==========================
-   Footer
-========================== */
+/* ===== FOOTER ===== */
 
-.ef-footer {
-  background: #0f172a;
-  color: #ddd;
-  padding-top: 50px;
-  margin-top: 2px;
-  box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+.mf-footer {
+  background: #3f4127;
+  color: #cfcdb9;
 }
 
-.ef-footer-container {
-  max-width: 1200px;
-  width: 100%;
-  margin: auto;
-  padding: 0 20px 40px;
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 40px;
+.mf-footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  background: rgba(0,0,0,0.45);
 }
 
-/* ==========================
-   Brand
-========================== */
-
-.ef-footer-brand p {
-  margin-top: 15px;
-  font-size: 14px;
-  line-height: 1.7;
-  color: #aaa;
-}
-
-.ef-footer-logo {
+.mf-footer-logo {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.ef-logo-icon {
-  background: red;
-  color: #fff;
-  padding: 8px;
-  border-radius: 8px;
-}
-
-.ef-logo-text {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.ef-logo-text .black {
-  color: #fff;
-}
-
-.ef-logo-text .red {
-  color: red;
-}
-
-/* ==========================
-   Links
-========================== */
-
-.ef-footer-links {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-}
-
-.ef-footer-links h4 {
-  margin-bottom: 12px;
-  color: #fff;
-}
-
-.ef-footer-links a {
-  display: block;
-  text-decoration: none;
-  color: #aaa;
-  margin-bottom: 8px;
-  font-size: 14px;
-  transition: 0.3s;
-}
-
-.ef-footer-links a:hover {
-  color: red;
-}
-
-/* ==========================
-   Newsletter
-========================== */
-
-.ef-footer-newsletter h4 {
-  color: #fff;
-}
-
-.ef-footer-newsletter p {
-  margin: 10px 0;
-  font-size: 14px;
-  color: #aaa;
-}
-
-.ef-newsletter-box {
-  display: flex;
-  width: 100%;
-  margin-top: 12px;
-}
-
-.ef-newsletter-box input {
-  flex: 1;
-  height: 50px;
-  padding: 0 15px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-  border-radius: 6px 0 0 6px;
-}
-
-.ef-newsletter-box button {
-  width: 55px;
-  height: 50px;
-  border: none;
-  background: red;
-  color: #fff;
+.mf-logo-badge {
+  width: 32px;
+  height: 32px;
+  border: 2px solid #c0392b;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0 6px 6px 0;
-  cursor: pointer;
-  transition: 0.3s ease;
+  flex-shrink: 0;
 }
 
-.ef-newsletter-box button:hover {
-  background: #c40000;
-}
-
-/* ==========================
-   Social Icons
-========================== */
-
-.ef-socials {
+.mf-logo-text {
   display: flex;
-  gap: 15px;
-  margin-top: 20px;
+  flex-direction: column;
+  line-height: 1.1;
+  width:100%;
 }
 
-.ef-socials svg {
+.mf-logo-title {
+  color: #fff;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.mf-logo-sub {
+  color: #c0392b;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.mf-back-top {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #c0392b;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  border: none;
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.ef-socials svg:hover {
-  color: red;
+.mf-back-top:hover {
+  background: #a53224;
 }
 
-/* ==========================
-   Bottom
-========================== */
-
-.ef-footer-bottom {
-  border-top: 1px solid #222;
-  text-align: center;
-  padding: 20px;
-  font-size: 13px;
-  color: #888;
+.mf-footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 1fr 0.8fr;
+  gap: 24px;
+  padding: 34px 24px;
 }
 
-/* ==========================
-   Large Tablets
-========================== */
-
-@media (max-width: 992px) {
-
-  .ef-footer-container {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 35px;
-  }
-
-  .ef-footer-logo {
-    justify-content: center;
-  }
-
-  .ef-footer-links {
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-  }
-
-  .ef-socials {
-    justify-content: center;
-  }
-}
-
-/* ==========================
-   Tablets & Phones
-========================== */
-
-@media (max-width: 768px) {
-
-  .ef-footer {
-    padding-top: 40px;
-  }
-
-  .ef-footer-container {
-    padding: 0 20px 35px;
-    gap: 30px;
-  }
-
-  .ef-footer-links {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 25px;
-  }
-
- .ef-newsletter-box {
+.mf-footer-nav {
+  display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.ef-newsletter-box input,
-.ef-newsletter-box button {
-  width: 100%;
-  height: 50px;
-  border-radius: 6px;
+.mf-footer-nav a {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #cfcdb9;
+  text-decoration: none;
 }
 
-  .ef-footer-brand p,
-  .ef-footer-newsletter p {
-    font-size: 13px;
-  }
-
-  .ef-logo-text {
-    font-size: 18px;
-  }
-
-  .ef-footer-bottom {
-    font-size: 12px;
-  }
+.mf-footer-nav a:hover {
+  color: #c0392b;
 }
 
-/* ==========================
-   Small Phones
-========================== */
+.mf-footer-block h5 {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-bottom: 14px;
+}
 
-@media (max-width: 480px) {
+.mf-footer-block p {
+  font-size: 11.5px;
+  margin-bottom: 8px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  color: #b7b59f;
+}
 
-  .ef-footer-container {
-    padding: 0 15px 30px;
+.mf-map-link {
+  font-size: 11px;
+  color: #c0392b;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.mf-socials {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.mf-socials a {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfcdb9;
+  text-decoration: none;
+  transition: .3s;
+}
+
+.mf-socials a:hover {
+  background: #c0392b;
+  color: #fff;
+}
+
+.mf-footer-bottom {
+  text-align: center;
+  font-size: 11px;
+  padding: 16px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: #8f8d78;
+  background: rgba(219,207,207,0.08);
+}
+
+/* ===== Responsive ===== */
+
+@media (max-width: 900px) {
+  .mf-footer-grid {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .ef-logo-icon {
-    padding: 7px;
+  .mf-footer-top {
+    /* flex-direction: column; */
+    gap: 15px;
+
+  }
+  
+}
+
+@media (max-width: 520px) {
+  .mf-footer-grid {
+    grid-template-columns: 1fr;
   }
 
-  .ef-logo-text {
-    font-size: 17px;
-  }
-
-  .ef-footer-links h4,
-  .ef-footer-newsletter h4 {
-    font-size: 16px;
-  }
-
-  .ef-footer-links a {
-    font-size: 13px;
-  }
-
-  .ef-newsletter-box input,
-  .ef-newsletter-box button {
-    font-size: 14px;
-  }
-
-  .ef-socials {
-    justify-content: center;
-    gap: 20px;
+  .mf-footer-top {
+    /* text-align: center; */
+    width: 100%;
   }
 }

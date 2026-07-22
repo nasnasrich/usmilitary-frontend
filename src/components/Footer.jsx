@@ -1,84 +1,137 @@
+import React from "react";
 import "./Footer.css";
-import { Mail, Globe, Send } from "lucide-react";
 
-const Footer = () => {
+import {
+  Star,
+  MapPin,
+  Phone,
+  Printer,
+  Mail,
+  ArrowUp,
+} from "lucide-react";
+
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaTwitter,
+  FaYoutube,
+  FaLinkedinIn,
+} from "react-icons/fa";
+
+const FOOTER_LINKS = [
+  "HOME",
+  "ABOUT",
+  "INFORMATION",
+  "BLOG",
+  "GALLERY",
+  "CONTACTS",
+];
+
+const scrollToTop = () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+};
+
+export default function Footer() {
   return (
-    <footer className="ef-footer">
-      <div className="ef-footer-container">
+    <footer className="mf-footer">
+      <div className="mf-footer-top">
+        <div className="mf-footer-logo">
+          <span className="mf-logo-badge">
+            <Star
+              size={16}
+              strokeWidth={2}
+              fill="#c0392b"
+              color="#c0392b"
+            />
+          </span>
 
-        {/* Brand */}
-        <div className="ef-footer-brand">
-          <div className="ef-footer-logo">
-            <span className="ef-logo-icon">⚡</span>
-            <span className="ef-logo-text">
-              <span className="black">Emerg</span>
-              <span className="red">Leave</span>
-            </span>
+          <div className="mf-logo-text">
+            <span className="mf-logo-title">MILITARY FORCE</span>
+            <span className="mf-logo-sub">SAVING THE PEACE</span>
           </div>
+        </div>
+
+        <button className="mf-back-top" onClick={scrollToTop}>
+          <ArrowUp size={16} /> BACK TO TOP
+        </button>
+      </div>
+
+      <div className="mf-footer-grid">
+        <div className="mf-footer-nav">
+          {FOOTER_LINKS.map((link) => (
+            <a href="#!" key={link}>
+              {link}
+            </a>
+          ))}
+        </div>
+
+        <div className="mf-footer-block">
+          <h5>LOCATION</h5>
 
           <p>
-            Fast and reliable emergency leave management system for employees
-            and organizations.
+            <MapPin size={13} />
+            8901 Marmora Road,
+            <br />
+            Glasgow, D04 89GR
+          </p>
+
+          <a href="#!" className="mf-map-link">
+            Map
+          </a>
+        </div>
+
+        <div className="mf-footer-block">
+          <h5>CONTACTS</h5>
+
+          <p>
+            <Phone size={13} />
+            Telephone: +1 800 123 1234
+          </p>
+
+          <p>
+            <Printer size={13} />
+            Fax: +1 800 123 1234
+          </p>
+
+          <p>
+            <Mail size={13} />
+            mail@demosite.com
           </p>
         </div>
 
-        {/* Links */}
-        <div className="ef-footer-links">
-          <div>
-            <h4>Company</h4>
-            <a href="#">About</a>
-            <a href="#">Careers</a>
-            <a href="#">Blog</a>
-          </div>
+        <div className="mf-footer-block">
+          <h5>FOLLOW US</h5>
 
-          <div>
-            <h4>Support</h4>
-            <a href="#">Help Center</a>
-            <a href="#">Contact</a>
-            <a href="#">Privacy Policy</a>
-          </div>
+          <div className="mf-socials">
+            <a href="#" aria-label="Facebook">
+              <FaFacebookF />
+            </a>
 
-          <div>
-            <h4>Features</h4>
-            <a href="#">Dashboard</a>
-            <a href="#">Leave Requests</a>
-            <a href="#">Approvals</a>
-          </div>
-        </div>
+            <a href="#" aria-label="Instagram">
+              <FaInstagram />
+            </a>
 
-        {/* Newsletter */}
-        <div className="ef-footer-newsletter">
-          <h4>Stay Updated</h4>
-          <p>Get updates and important alerts.</p>
+            <a href="#" aria-label="Twitter">
+              <FaTwitter />
+            </a>
 
-          <div className="ef-newsletter-box">
-            <input
-              type="email"
-              placeholder="Enter your email"
-            />
+            <a href="#" aria-label="YouTube">
+              <FaYoutube />
+            </a>
 
-            <button>
-              <Mail size={18} />
-            </button>
-          </div>
-
-          {/* Social Icons */}
-          <div className="ef-socials">
-            <Globe size={18} />
-            <Send size={18} />
-            <Mail size={18} />
+            <a href="#" aria-label="LinkedIn">
+              <FaLinkedinIn />
+            </a>
           </div>
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="ef-footer-bottom">
-        <p>
-          © {new Date().getFullYear()} EmergLeave. All rights reserved.
-        </p>
+      <div className="mf-footer-bottom">
+        Copyright &copy; 2015, Military Force. All rights reserved.
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}
