@@ -77,7 +77,7 @@ export default function EmergencyLeave() {
             When duty calls you home unexpectedly, we make sure the process
             doesn't slow you down. This form routes your emergency leave
             request directly to your unit and the leave office, so approvals
-            happen fast and you can focus on what matters — getting there.
+            happen fast and you can focus on what matters - getting there.
           </p>
           <a href="#el-form" className="el-btn el-btn--primary">
             START YOUR REQUEST
@@ -120,8 +120,7 @@ export default function EmergencyLeave() {
           <span className="el-rule" />
         </div>
         <p className="el-form-lede">
-          Complete every field below with care. Incomplete or inaccurate
-          information may delay processing of your emergency leave.
+          Submit your emergency leave request for prompt review and approval.
         </p>
 
         <form className="el-form-card" onSubmit={submitForm}>

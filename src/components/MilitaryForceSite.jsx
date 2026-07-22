@@ -173,7 +173,7 @@ export default function MilitaryForceSite() {
             deliver secure, efficient, and compassionate service whenever duty
             calls.
           </p>
-          <Link to="/auth">
+          <Link to="/EmergencyLeave">
             <button className="mf-btn mf-btn--primary">APPLY NOW!!</button>
           </Link>
         </div>
