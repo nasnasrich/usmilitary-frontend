@@ -404,10 +404,10 @@ const CSS = `
   background: var(--mf-red);
   color: #fff;
   border: 1px solid white;
-  border-radius: 10%
-    background: transparent;
-        box-shadow: 2px 2px 2px rgb(0, 0, 0);
-padding: 4px 4px;
+  border-radius: 4%;
+  background: transparent;
+  box-shadow: 2px 2px 2px rgb(0, 0, 0);
+  padding: 4px 4px;
 }
 .mf-btn--primary:hover { background: var(--mf-red-dark);  }
 .mf-btn--dark { background: var(--mf-near-black); color: #fff; padding: 10px 24px;}
