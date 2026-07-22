@@ -400,9 +400,17 @@ const CSS = `
   letter-spacing: 1px;
   font-weight: 600;
 }
-.mf-btn--primary { background: var(--mf-red); color: #fff; }
-.mf-btn--primary:hover { background: var(--mf-red-dark); }
-.mf-btn--dark { background: var(--mf-near-black); color: #fff; padding: 10px 24px; }
+.mf-root .mf-btn--primary {
+  background: var(--mf-red);
+  color: #fff;
+  border: 1px solid white;
+  border-radius: 10%
+    background: transparent;
+        box-shadow: 2px 2px 2px rgb(0, 0, 0);
+padding: 4px 4px;
+}
+.mf-btn--primary:hover { background: var(--mf-red-dark);  }
+.mf-btn--dark { background: var(--mf-near-black); color: #fff; padding: 10px 24px;}
 
 .mf-hero-arrow {
   position: absolute;
