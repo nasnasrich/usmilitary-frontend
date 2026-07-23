@@ -195,6 +195,7 @@
 .au-cta-icon { color: var(--au-gold-dark); margin-bottom: 14px; }
 .au-cta h3 {
   font-size: 21px;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   margin-bottom: 14px;
   color: var(--au-navy);
 }
@@ -233,11 +234,17 @@
   .au-intro { grid-template-columns: 1fr; }
   .au-intro-col { border-right: none; border-bottom: 1px solid var(--au-border); }
   .au-values-grid { grid-template-columns: 1fr; }
-  .au-stats-grid { grid-template-columns: 1fr 1fr; }
+  .au-stats-grid { grid-template-columns: 1fr 1fr; } 
   .au-stat { border-left: none; }
+  .au-stat span {   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;}
   .au-hero h1 { font-size: 26px; }
   .au-cta-actions .au-btn  { background: transparent;   color: var(--au-navy);}
   .au-cta-actions .au-btn:hover { background: var(--au-navy-light); }
+  .au-cta h3 {
+  font-size: 15px;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-decoration: underline;
+}
   .au-btn--ghost {border: none;}
   .au-btn--ghost:hover { background: var(--au-navy-light); }
 

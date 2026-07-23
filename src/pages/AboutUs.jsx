@@ -55,23 +55,19 @@ export default function AboutUs() {
       <section className="au-intro">
         <div className="au-intro-col">
           <span className="au-intro-tag">Mission</span>
-          <h3>Reliable Leave, Without Delay</h3>
+          <h3>Fast, Reliable Leave</h3>
           <p>
-            To provide every service member with a fast, transparent, and
-            reliable path to emergency leave — ensuring no one is left
-            waiting on paperwork when family needs them most. We work
-            directly with unit commanders and leave offices so requests are
-            reviewed without unnecessary back-and-forth.
+            To provide every service member a fast, transparent path to emergency
+            leave-working directly with unit commanders and leave offices for
+            timely review.
           </p>
         </div>
         <div className="au-intro-col">
           <span className="au-intro-tag">Vision</span>
-          <h3>A Fully Digital Standard</h3>
+          <h3>A Digital-First Standard</h3>
           <p>
-            A military leave process so efficient it never becomes an
-            obstacle. We're building toward a fully digital, fully
-            accountable system that every branch can rely on, at every base,
-            in every time zone.
+            A fully digital, accountable leave process that every branch can
+            rely on, at every base.
           </p>
         </div>
       </section>
