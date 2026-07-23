@@ -299,9 +299,10 @@ export default function MilitaryForceSite() {
               </li>
             ))}
           </ul>
-          <a href="/NewsArchive" className="mf-news-archive">
+          
+          <Link to="/NewsArchive" className="mf-news-archive">
             NEWS ARCHIVE <span>&raquo;</span>
-          </a>
+          </Link>
         </div>
 
         <div className="mf-bottom-col mf-why">
