@@ -6,8 +6,9 @@ import MilitaryForceSite from "./components/MilitaryForceSite";
 import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal"; 
 import Application from "../src/components/Application"; 
-import EmergencyLeave from "../src/pages/EmergencyLeave"; 
+import EmergencyLeave from "../src/pages/EmergencyLeave";
 import AboutUs from "./pages/AboutUs";
+import NewsArchive from "./pages/NewsArchive";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/Application" element={<Application />} /> 
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} /> 
           <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/NewsArchive" element={<NewsArchive />} />
         </Routes>
       </main>
 
