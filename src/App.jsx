@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal"; 
 import Application from "../src/components/Application"; 
 import EmergencyLeave from "../src/pages/EmergencyLeave"; 
+import AboutUs from "./pages/AboutUs";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/auth" element={<AuthModal />} />
           <Route path="/Application" element={<Application />} /> 
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} /> 
+          <Route path="/AboutUs" element={<AboutUs />} />
         </Routes>
       </main>
 

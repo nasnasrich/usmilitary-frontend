@@ -283,8 +283,10 @@ export default function MilitaryForceSite() {
             The U.S. Military Leave Department is a dedicated administrative
             body established to streamline and manage the leave process for
             active-duty service members across all branches...
-          </p>
-          <button className="mf-btn mf-btn--dark">more</button>
+          </p>    
+
+          <Link to="/AboutUs"><button className="mf-btn mf-btn--dark">more</button></Link>
+          
         </div>
 
         <div className="mf-bottom-col mf-news">
