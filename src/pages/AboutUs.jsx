@@ -122,6 +122,7 @@ export default function AboutUs() {
             <Link to="/auth" className="au-btn au-btn--primary">
               Submit a Request <ArrowRight size={15} />
             </Link>
+
             <Link to="/" className="au-btn au-btn--ghost">
               Back to Home
             </Link>
