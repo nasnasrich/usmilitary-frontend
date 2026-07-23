@@ -113,4 +113,14 @@
 @media (max-width: 600px) {
   .na-item { grid-template-columns: 1fr; gap: 8px; }
   .na-hero h1 { font-size: 24px; }
+  .na-btn {
+   background: none;
+   color: black;
+   padding: 1%;
+   /* border: 2px solid bisque; */
+  }
+  .na-btn:hover { 
+   background: none;
+   border: 2px solid black;
+  }
 }
