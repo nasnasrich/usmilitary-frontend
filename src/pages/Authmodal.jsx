@@ -4,15 +4,14 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useClerk } from "@clerk/clerk-react";
-
+import { useSignIn } from "@clerk/clerk-react";
 
 function AuthModal() {
   const [activeTab, setActiveTab] = useState("signup");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const { openSignIn } = useClerk();
+  const { signIn } = useSignIn();
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -88,6 +87,26 @@ function AuthModal() {
       setLoading(false);
     }
   };
+
+  const signInWithGoogle = async () => {
+  if (!signIn) return;
+
+  await signIn.authenticateWithRedirect({
+    strategy: "oauth_google",
+    redirectUrl: "/sso-callback",
+    redirectUrlComplete: "/EmergencyLeave",
+  });
+};
+
+const signInWithApple = async () => {
+  if (!signIn) return;
+
+  await signIn.authenticateWithRedirect({
+    strategy: "oauth_apple",
+    redirectUrl: "/sso-callback",
+    redirectUrlComplete: "/EmergencyLeave",
+  });
+};
 
 
   return (
@@ -255,31 +274,15 @@ function AuthModal() {
         )}
 
         <div className="divider">OR CONTINUE WITH</div>
-        
+
         <div className="social-buttons">
           {/* Google */}
-          <button
-            onClick={() =>
-              openSignIn({
-                strategy: "oauth_google",
-                redirectUrl: "/sso-callback",
-                afterSignInUrl: "/EmergencyLeave",
-              })
-            }
-          >
+          <button onClick={signInWithGoogle}>
             <FcGoogle size={22} />
           </button>
 
           {/* Apple */}
-          <button
-            onClick={() =>
-              openSignIn({
-                strategy: "oauth_apple",
-                redirectUrl: "/sso-callback",
-                afterSignInUrl: "/EmergencyLeave",
-              })
-            }
-          >
+          <button onClick={signInWithApple}>
             <FaApple size={22} />
           </button>
         </div>
