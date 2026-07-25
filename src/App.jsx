@@ -10,6 +10,7 @@ import EmergencyLeave from "../src/pages/EmergencyLeave";
 import AboutUs from "./pages/AboutUs";
 import NewsArchive from "./pages/NewsArchive";
 import ScrollToTop from "./ScrollToTop";
+import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/NewsArchive" element={<NewsArchive />} />
+
+          <Route path="/sso-callback" element={<AuthenticateWithRedirectCallback />}
+/>
         </Routes>
       </main>
 
