@@ -3,6 +3,7 @@ import "./Authmodal.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
+import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useSignIn, useUser, useClerk } from "@clerk/clerk-react";
 
@@ -35,13 +36,20 @@ function AuthModal() {
     setLoading(true);
     setError("");
 
+    const toastId = toast.loading("Creating your account...");
+
     try {
       const res = await axios.post(
         `${backendUrl}/api/auth/register`,
         signupData,
       );
 
-      alert(res.data.message);
+      toast.update(toastId, {
+        render: "Account created successfully!",
+        type: "success",
+        isLoading: false,
+        autoClose: 2500,
+      });
 
       setSignupData({
         firstName: "",
@@ -53,21 +61,34 @@ function AuthModal() {
 
       setActiveTab("login");
     } catch (err) {
-      setError(err.response?.data?.message || "Registration failed");
+      toast.update(toastId, {
+        render: err.response?.data?.message || "Registration failed",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
     } finally {
       setLoading(false);
     }
   };
 
   //login handler
+
   const handleLogin = async () => {
     setLoading(true);
     setError("");
 
+    const toastId = toast.loading("Signing you in...");
+
     try {
       const res = await axios.post(`${backendUrl}/api/auth/login`, loginData);
 
-      alert("Login Successful");
+      toast.update(toastId, {
+        render: "Login successful!",
+        type: "success",
+        isLoading: false,
+        autoClose: 2000,
+      });
 
       // Save token
       localStorage.setItem("token", res.data.token);
@@ -80,7 +101,12 @@ function AuthModal() {
 
       console.log(res.data);
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      toast.update(toastId, {
+        render: err.response?.data?.message || "Login failed",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
     } finally {
       setLoading(false);
     }
@@ -91,34 +117,68 @@ function AuthModal() {
   const { isSignedIn } = useUser();
   console.log("isSignedIn:", isSignedIn);
 
-
-  const signInWithGoogle = async () => {
+ const signInWithGoogle = async () => {
   if (!signIn) return;
 
-  if (isSignedIn) {
-    await signOut();
-  }
+  const toastId = toast.loading("Redirecting to Google...");
 
-  await signIn.authenticateWithRedirect({
-    strategy: "oauth_google",
-    redirectUrl: `${window.location.origin}/sso-callback`,
-    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-  });
+  try {
+    if (isSignedIn) {
+      await signOut();
+    }
+
+    toast.update(toastId, {
+      render: "Opening Google...",
+      type: "success",
+      isLoading: false,
+      autoClose: 1000,
+    });
+
+    await signIn.authenticateWithRedirect({
+      strategy: "oauth_google",
+      redirectUrl: `${window.location.origin}/sso-callback`,
+      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
+    });
+  } catch (err) {
+    toast.update(toastId, {
+      render: "Google sign in failed",
+      type: "error",
+      isLoading: false,
+      autoClose: 3000,
+    });
+  }
 };
 
   const signInWithApple = async () => {
   if (!signIn) return;
 
-  // Sign out first if already signed in
-  if (isSignedIn) {
-    await signOut();
-  }
+  const toastId = toast.loading("Redirecting to Apple...");
 
-  await signIn.authenticateWithRedirect({
-    strategy: "oauth_apple",
-    redirectUrl: `${window.location.origin}/sso-callback`,
-    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-  });
+  try {
+    if (isSignedIn) {
+      await signOut();
+    }
+
+    toast.update(toastId, {
+      render: "Opening Apple...",
+      type: "success",
+      isLoading: false,
+      autoClose: 1000,
+    });
+
+    await signIn.authenticateWithRedirect({
+      strategy: "oauth_apple",
+      redirectUrl: `${window.location.origin}/sso-callback`,
+      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
+    });
+  } catch (err) {
+    toast.update(toastId, {
+      render: "Apple sign in failed",
+      type: "error",
+      isLoading: false,
+      autoClose: 3000,
+    });
+  }
 };
 
   return (
