@@ -158,6 +158,7 @@ input {
   color: #fff;
   font-size: 10px;
   font-family: inherit;
+  display: none;
   /* font-weight: 600; */
   cursor: pointer;
   transition: all 0.3s ease;
