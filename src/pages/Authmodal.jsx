@@ -11,8 +11,6 @@ function AuthModal() {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
- 
-
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   const [signupData, setSignupData] = useState({
@@ -88,19 +86,13 @@ function AuthModal() {
     }
   };
 
-
   const { signIn } = useSignIn();
   const { signOut } = useClerk();
   const { isSignedIn } = useUser();
   console.log("isSignedIn:", isSignedIn);
 
-
-const signInWithGoogle = async () => {
+  const signInWithGoogle = async () => {
     if (!signIn) return;
-
-    if (isSignedIn) {
-      await signOut();
-    }
 
     await signIn.authenticateWithRedirect({
       strategy: "oauth_google",
@@ -109,20 +101,19 @@ const signInWithGoogle = async () => {
     });
   };
 
-const signInWithApple = async () => {
-  if (!signIn) return;
+  const signInWithApple = async () => {
+    if (!signIn) return;
 
-  if (isSignedIn) {
-    await signOut();
-  }
+    if (isSignedIn) {
+      await signOut();
+    }
 
-  await signIn.authenticateWithRedirect({
-    strategy: "oauth_apple",
-    redirectUrl: `${window.location.origin}/sso-callback`,
-    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-  });
-};
-
+    await signIn.authenticateWithRedirect({
+      strategy: "oauth_apple",
+      redirectUrl: `${window.location.origin}/sso-callback`,
+      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
+    });
+  };
 
   return (
     <div className="page">
