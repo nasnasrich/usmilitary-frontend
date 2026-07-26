@@ -4,14 +4,15 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useSignIn } from "@clerk/clerk-react";
+import { useSignIn, useUser } from "@clerk/clerk-react";
+
 
 function AuthModal() {
   const [activeTab, setActiveTab] = useState("signup");
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
 
-  const { signIn } = useSignIn();
+ 
 
   const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -88,23 +89,44 @@ function AuthModal() {
     }
   };
 
+
+  const { signIn } = useSignIn();
+  const { isSignedIn } = useUser();
+
+  console.log("isSignedIn:", isSignedIn);
+
   const signInWithGoogle = async () => {
   if (!signIn) return;
 
+  console.log("isSignedIn:", isSignedIn);
+
+  if (isSignedIn) {
+    navigate("/EmergencyLeave");
+    return;
+  }
+
   await signIn.authenticateWithRedirect({
     strategy: "oauth_google",
-    redirectUrl: "/sso-callback",
-    redirectUrlComplete: "/EmergencyLeave",
+    redirectUrl: `${window.location.origin}/sso-callback`,
+    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
   });
 };
+
 
 const signInWithApple = async () => {
   if (!signIn) return;
 
+  console.log("isSignedIn:", isSignedIn);
+
+  if (isSignedIn) {
+    navigate("/EmergencyLeave");
+    return;
+  }
+
   await signIn.authenticateWithRedirect({
     strategy: "oauth_apple",
-    redirectUrl: "/sso-callback",
-    redirectUrlComplete: "/EmergencyLeave",
+    redirectUrl: `${window.location.origin}/sso-callback`,
+    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
   });
 };
 
