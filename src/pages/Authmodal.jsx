@@ -91,29 +91,35 @@ function AuthModal() {
   const { isSignedIn } = useUser();
   console.log("isSignedIn:", isSignedIn);
 
-  const signInWithGoogle = async () => {
-    if (!signIn) return;
 
-    await signIn.authenticateWithRedirect({
-      strategy: "oauth_google",
-      redirectUrl: `${window.location.origin}/sso-callback`,
-      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-    });
-  };
+  const signInWithGoogle = async () => {
+  if (!signIn) return;
+
+  if (isSignedIn) {
+    await signOut();
+  }
+
+  await signIn.authenticateWithRedirect({
+    strategy: "oauth_google",
+    redirectUrl: `${window.location.origin}/sso-callback`,
+    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
+  });
+};
 
   const signInWithApple = async () => {
-    if (!signIn) return;
+  if (!signIn) return;
 
-    if (isSignedIn) {
-      await signOut();
-    }
+  // Sign out first if already signed in
+  if (isSignedIn) {
+    await signOut();
+  }
 
-    await signIn.authenticateWithRedirect({
-      strategy: "oauth_apple",
-      redirectUrl: `${window.location.origin}/sso-callback`,
-      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-    });
-  };
+  await signIn.authenticateWithRedirect({
+    strategy: "oauth_apple",
+    redirectUrl: `${window.location.origin}/sso-callback`,
+    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
+  });
+};
 
   return (
     <div className="page">
@@ -282,14 +288,16 @@ function AuthModal() {
         <div className="divider">OR CONTINUE WITH</div>
 
         <div className="social-buttons">
-          {/* Google */}
           <button onClick={signInWithGoogle}>
             <FcGoogle size={22} />
           </button>
 
-          {/* Apple */}
           <button onClick={signInWithApple}>
             <FaApple size={22} />
+          </button>
+
+          <button className="logout-btn" onClick={() => signOut()}>
+            Sign Out
           </button>
         </div>
       </div>
