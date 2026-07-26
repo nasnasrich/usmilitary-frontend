@@ -4,8 +4,7 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useSignIn, useUser } from "@clerk/clerk-react";
-
+import { useSignIn, useUser, useClerk } from "@clerk/clerk-react";
 
 function AuthModal() {
   const [activeTab, setActiveTab] = useState("signup");
@@ -91,36 +90,30 @@ function AuthModal() {
 
 
   const { signIn } = useSignIn();
+  const { signOut } = useClerk();
   const { isSignedIn } = useUser();
-
   console.log("isSignedIn:", isSignedIn);
 
-  const signInWithGoogle = async () => {
-  if (!signIn) return;
 
-  console.log("isSignedIn:", isSignedIn);
+const signInWithGoogle = async () => {
+    if (!signIn) return;
 
-  if (isSignedIn) {
-    navigate("/EmergencyLeave");
-    return;
-  }
+    if (isSignedIn) {
+      await signOut();
+    }
 
-  await signIn.authenticateWithRedirect({
-    strategy: "oauth_google",
-    redirectUrl: `${window.location.origin}/sso-callback`,
-    redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-  });
-};
-
+    await signIn.authenticateWithRedirect({
+      strategy: "oauth_google",
+      redirectUrl: `${window.location.origin}/sso-callback`,
+      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
+    });
+  };
 
 const signInWithApple = async () => {
   if (!signIn) return;
 
-  console.log("isSignedIn:", isSignedIn);
-
   if (isSignedIn) {
-    navigate("/EmergencyLeave");
-    return;
+    await signOut();
   }
 
   await signIn.authenticateWithRedirect({
