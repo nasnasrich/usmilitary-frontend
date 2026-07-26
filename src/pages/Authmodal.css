@@ -181,4 +181,8 @@ input {
   .name-row {
     flex-direction: column;
   }
+
+  .logout-btn {
+    display: none;
+  }
 }
