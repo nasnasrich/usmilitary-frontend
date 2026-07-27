@@ -11,19 +11,17 @@ import App from "./App";
 const clerkPubKey = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ClerkProvider publishableKey={clerkPubKey}>
-    <BrowserRouter>
-      <App />
-      <ToastContainer
-        position="top-center"
-        autoClose={2500}
-        hideProgressBar={false}
-        newestOnTop
-        closeOnClick
-        pauseOnHover
-        draggable
-        theme="colored"
-      />
-    </BrowserRouter>
-  </ClerkProvider>
+ <ClerkProvider
+  publishableKey={clerkPubKey}
+  afterSignOutUrl="/"
+>
+  <BrowserRouter>
+    <App />
+    <ToastContainer
+      position="top-center"
+      autoClose={2500}
+      theme="colored"
+    />
+  </BrowserRouter>
+</ClerkProvider>
 );

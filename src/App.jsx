@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 import Navbar from "./Navbar";
@@ -14,13 +14,7 @@ import NewsArchive from "./pages/NewsArchive";
 import ScrollToTop from "./ScrollToTop";
 
 function App() {
-  const location = useLocation();
-
-  // Clerk callback page
-  if (location.pathname === "/sso-callback") {
-    return <AuthenticateWithRedirectCallback />;
-  }
-
+ 
   return (
     <div className="app-wrapper">
       <Navbar />
@@ -28,6 +22,11 @@ function App() {
 
       <main className="page-content">
         <Routes>
+          <Route
+              path="/sso-callback"
+              element={<AuthenticateWithRedirectCallback />}
+            />
+
           <Route path="/" element={<MilitaryForceSite />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/auth" element={<AuthModal />} />
