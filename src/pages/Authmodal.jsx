@@ -117,69 +117,71 @@ function AuthModal() {
   const { isSignedIn } = useUser();
   console.log("isSignedIn:", isSignedIn);
 
- const signInWithGoogle = async () => {
-  if (!signIn) return;
+  const signInWithGoogle = async () => {
+    if (!signIn) return;
 
-  const toastId = toast.loading("Redirecting to Google...");
+    const toastId = toast.loading("Redirecting to Google...");
 
-  try {
-    if (isSignedIn) {
-      await signOut();
+    try {
+      if (isSignedIn) {
+        await signOut();
+      }
+
+      toast.update(toastId, {
+        render: "Opening Google...",
+        type: "success",
+        isLoading: false,
+        autoClose: 1000,
+      });
+
+      await signIn.authenticateWithRedirect({
+        strategy: "oauth_google",
+        redirectUrl: "https://usmilitary-frontend-2.vercel.app/sso-callback",
+        redirectUrlComplete:
+          "https://usmilitary-frontend-2.vercel.app/EmergencyLeave",
+      });
+    } catch (err) {
+      toast.update(toastId, {
+        render: "Google sign in failed",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
     }
-
-    toast.update(toastId, {
-      render: "Opening Google...",
-      type: "success",
-      isLoading: false,
-      autoClose: 1000,
-    });
-
-    await signIn.authenticateWithRedirect({
-      strategy: "oauth_google",
-      redirectUrl: `${window.location.origin}/sso-callback`,
-      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-    });
-  } catch (err) {
-    toast.update(toastId, {
-      render: "Google sign in failed",
-      type: "error",
-      isLoading: false,
-      autoClose: 3000,
-    });
-  }
-};
+  };
 
   const signInWithApple = async () => {
-  if (!signIn) return;
+    if (!signIn) return;
 
-  const toastId = toast.loading("Redirecting to Apple...");
+    const toastId = toast.loading("Redirecting to Apple...");
 
-  try {
-    if (isSignedIn) {
-      await signOut();
+    try {
+      if (isSignedIn) {
+        await signOut();
+      }
+
+      toast.update(toastId, {
+        render: "Opening Apple...",
+        type: "success",
+        isLoading: false,
+        autoClose: 1000,
+      });
+
+      await signIn.authenticateWithRedirect({
+        strategy: "oauth_apple",
+        redirectUrl: "https://usmilitary-frontend-2.vercel.app/sso-callback",
+        redirectUrlComplete:
+          "https://usmilitary-frontend-2.vercel.app/EmergencyLeave",
+      });
+    } catch (err) {
+      toast.update(toastId, {
+        render: "Apple sign in failed",
+        type: "error",
+        isLoading: false,
+        autoClose: 3000,
+      });
     }
-
-    toast.update(toastId, {
-      render: "Opening Apple...",
-      type: "success",
-      isLoading: false,
-      autoClose: 1000,
-    });
-
-    await signIn.authenticateWithRedirect({
-      strategy: "oauth_apple",
-      redirectUrl: `${window.location.origin}/sso-callback`,
-      redirectUrlComplete: `${window.location.origin}/EmergencyLeave`,
-    });
-  } catch (err) {
-    toast.update(toastId, {
-      render: "Apple sign in failed",
-      type: "error",
-      isLoading: false,
-      autoClose: 3000,
-    });
-  }
-};
+  };
 
   return (
     <div className="page">

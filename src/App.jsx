@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 import Navbar from "./Navbar";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 import MilitaryForceSite from "./components/MilitaryForceSite";
 import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal";
@@ -28,7 +28,7 @@ function App() {
             />
 
           <Route path="/" element={<MilitaryForceSite />} />
-          <Route path="/Home" element={<Home />} />
+          {/* <Route path="/Home" element={<Home />} /> */}
           <Route path="/auth" element={<AuthModal />} />
           <Route path="/Application" element={<Application />} />
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} />
