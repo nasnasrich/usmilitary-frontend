@@ -115,12 +115,15 @@ function AuthModal() {
   const { signIn } = useSignIn();
   const { signOut, loaded } = useClerk();
   const { isSignedIn } = useUser();
-  console.log("isSignedIn:", isSignedIn);
+  // console.log("isSignedIn:", isSignedIn);
 
   const signInWithGoogle = async () => {
-    if (!loaded || !signIn) return;
+    if (!loaded || !signIn) {
+      console.log("Clerk is not loaded yet.");
+      return;
+    }
 
-    const toastId = toast.loading("Redirecting to Google...");
+    console.log("Starting Google Sign-In...");
 
     try {
       if (isSignedIn) {
@@ -133,13 +136,12 @@ function AuthModal() {
         redirectUrlComplete:
           "https://usmilitary-frontend-2.vercel.app/EmergencyLeave",
       });
+
+      console.log("Redirect initiated.");
     } catch (err) {
-      toast.update(toastId, {
-        render: "Google sign in failed",
-        type: "error",
-        isLoading: false,
-        autoClose: 3000,
-      });
+      console.error(err);
+
+      toast.error("Google sign in failed");
     }
   };
 
@@ -336,7 +338,7 @@ function AuthModal() {
         <div className="divider">OR CONTINUE WITH</div>
 
         <div className="social-buttons">
-          <button onClick={signInWithGoogle} disabled={!loaded}>
+          <button onClick={signInWithGoogle} disabled={!.}>
             <FcGoogle size={22} />
           </button>
 
