@@ -113,12 +113,12 @@ function AuthModal() {
   };
 
   const { signIn } = useSignIn();
-  const { signOut } = useClerk();
+  const { signOut, loaded } = useClerk();
   const { isSignedIn } = useUser();
   console.log("isSignedIn:", isSignedIn);
 
   const signInWithGoogle = async () => {
-    if (!signIn) return;
+    if (!loaded || !signIn) return;
 
     const toastId = toast.loading("Redirecting to Google...");
 
@@ -126,13 +126,6 @@ function AuthModal() {
       if (isSignedIn) {
         await signOut();
       }
-
-      toast.update(toastId, {
-        render: "Opening Google...",
-        type: "success",
-        isLoading: false,
-        autoClose: 1000,
-      });
 
       await signIn.authenticateWithRedirect({
         strategy: "oauth_google",
@@ -151,7 +144,7 @@ function AuthModal() {
   };
 
   const signInWithApple = async () => {
-    if (!signIn) return;
+    if (!loaded || !signIn) return;
 
     const toastId = toast.loading("Redirecting to Apple...");
 
@@ -159,13 +152,6 @@ function AuthModal() {
       if (isSignedIn) {
         await signOut();
       }
-
-      toast.update(toastId, {
-        render: "Opening Apple...",
-        type: "success",
-        isLoading: false,
-        autoClose: 1000,
-      });
 
       await signIn.authenticateWithRedirect({
         strategy: "oauth_apple",
@@ -350,11 +336,11 @@ function AuthModal() {
         <div className="divider">OR CONTINUE WITH</div>
 
         <div className="social-buttons">
-          <button onClick={signInWithGoogle}>
+          <button onClick={signInWithGoogle} disabled={!loaded}>
             <FcGoogle size={22} />
           </button>
 
-          <button onClick={signInWithApple}>
+          <button onClick={signInWithApple} disabled={!loaded}>
             <FaApple size={22} />
           </button>
 
