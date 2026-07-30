@@ -28,6 +28,8 @@ export default function EmergencyLeave() {
     reason: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setForm({
       ...form,
@@ -37,6 +39,7 @@ export default function EmergencyLeave() {
 
   const submitForm = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       await sendEmail("template_ipnpjf5", form);
       await sendEmail("template_dbtwham", form);
@@ -55,7 +58,12 @@ export default function EmergencyLeave() {
       });
     } catch (err) {
       console.error("EmailJS Error:", err);
-      toast.error( err.text || err.message || "An unexpected error occurred.");
+
+      toast.error(
+        err.text || err.message || "Unknown error"
+      );
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -251,8 +259,22 @@ export default function EmergencyLeave() {
               />
             </label>
 
-            <button type="submit" className="el-btn el-btn--submit">
-              <Send size={15} /> SUBMIT REQUEST
+            <button
+              type="submit"
+              className="el-btn el-btn--submit"
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <span className="loader"></span>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send size={15} />
+                  SUBMIT REQUEST
+                </>
+              )}
             </button>
           </div>
         </form>
