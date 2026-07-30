@@ -338,7 +338,7 @@ function AuthModal() {
         <div className="divider">OR CONTINUE WITH</div>
 
         <div className="social-buttons">
-          <button onClick={signInWithGoogle} disabled={!.}>
+          <button onClick={signInWithGoogle} disabled={! loaded}>
             <FcGoogle size={22} />
           </button>
 
