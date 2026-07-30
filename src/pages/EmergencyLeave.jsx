@@ -38,7 +38,7 @@ export default function EmergencyLeave() {
     e.preventDefault();
     try {
       await sendEmail("template_ipnpjf5", form);
-      await sendEmail("template_dbtwham ", form);
+      await sendEmail("template_dbtwham", form);
       alert("Your emergency leave application has been submitted successfully.");
       setForm({
         employeeName: "",
