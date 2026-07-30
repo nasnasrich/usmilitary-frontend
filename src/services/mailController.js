@@ -1,7 +1,7 @@
 import emailjs from "@emailjs/browser";
 
-const SERVICE_ID = "80rHNTGmidx91oDIW";
-const PUBLIC_KEY = "1GjG2H6ttaSxiJXrQ";
+const SERVICE_ID = "service_578fq7c";
+const PUBLIC_KEY = "80rHNTGmidx91oDIW";
 
 export const sendEmail = (templateId, data) => {
   return emailjs.send(
