@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sendEmail } from "../services/mailController";
 import "../pages/EmergencyLeave.css";
+import { toast } from "react-toastify";
 import {
   ShieldCheck,
   ClipboardList,
@@ -39,7 +40,8 @@ export default function EmergencyLeave() {
     try {
       await sendEmail("template_ipnpjf5", form);
       await sendEmail("template_dbtwham", form);
-      alert("Your emergency leave application has been submitted successfully.");
+      toast.success("Your emergency leave application has been submitted successfully."
+        );
       setForm({
         employeeName: "",
         employeeAddress: "",
@@ -53,11 +55,7 @@ export default function EmergencyLeave() {
       });
     } catch (err) {
       console.error("EmailJS Error:", err);
-      alert(
-        `Status: ${err.status || "Unknown"}\nMessage: ${
-          err.text || err.message || "Unknown error"
-        }`
-      );
+      toast.error( err.text || err.message || "An unexpected error occurred.");
     }
   };
 
