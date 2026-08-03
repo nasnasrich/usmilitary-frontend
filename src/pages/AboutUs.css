@@ -232,6 +232,10 @@
 /* ===== RESPONSIVE ===== */
 @media (max-width: 800px) {
   .au-intro { grid-template-columns: 1fr; }
+  .au-hero-inner p{
+    width: 102%;
+    text-align: center;
+  }
   .au-intro-col { border-right: none; border-bottom: 1px solid var(--au-border); }
   .au-values-grid { grid-template-columns: 1fr; }
   .au-stats-grid { grid-template-columns: 1fr 1fr; } 

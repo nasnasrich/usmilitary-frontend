@@ -130,7 +130,10 @@ export default function Footer() {
       </div>
 
       <div className="mf-footer-bottom">
-        Copyright &copy; 2015, Military Force. All rights reserved.
+        <p>
+    © 2026 US Leave Portal Demo. This is a practice project created for web 
+    development and testing purposes only. Not an official government website.
+  </p>
       </div>
     </footer>
   );
