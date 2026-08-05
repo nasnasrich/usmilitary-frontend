@@ -41,8 +41,8 @@ export default function EmergencyLeave() {
     e.preventDefault();
     setLoading(true);
     try {
-      await sendEmail("template_ipnpjf5", form);
-      await sendEmail("template_dbtwham", form);
+      await sendEmail("template_8g70j6o", form);
+      await sendEmail("template_5ko1z39", form);
       toast.success("Your emergency leave application has been submitted successfully."
         );
       setForm({
