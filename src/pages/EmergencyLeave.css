@@ -314,7 +314,7 @@
     padding: 5%;
 }   
 
-.logout-btn {
+.el-footnote button {
   margin-top: 20px;
   background: #c0392b;
   color: white;
@@ -323,10 +323,11 @@
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
+  text-decoration: underline;
   font-weight: bold;
 }
 
-.logout-btn:hover {
+.el-footnote button:hover {
   background: #a93226;
 }
 }

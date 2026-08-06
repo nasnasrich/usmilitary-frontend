@@ -295,11 +295,12 @@ export default function EmergencyLeave() {
 
           <button
             style={{
-              background: "red",
-              color: "white",
-              padding: "15px 30px",
+              background: "none",
+              color: "black",
+              textDecoration: "underline",
+              padding: "5px ",
               border: "none",
-              fontSize: "18px",
+              fontSize: "13px",
               marginTop: "20px",
               cursor: "pointer",
             }}
