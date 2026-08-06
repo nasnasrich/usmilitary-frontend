@@ -7,7 +7,6 @@ import Navbar from "./Navbar";
 import MilitaryForceSite from "./components/MilitaryForceSite";
 import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal";
-import Application from "./components/Application";
 import EmergencyLeave from "./pages/EmergencyLeave";
 import AboutUs from "./pages/AboutUs";
 import NewsArchive from "./pages/NewsArchive";
@@ -30,7 +29,6 @@ function App() {
           <Route path="/" element={<MilitaryForceSite />} />
           {/* <Route path="/Home" element={<Home />} /> */}
           <Route path="/auth" element={<AuthModal />} />
-          <Route path="/Application" element={<Application />} />
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/NewsArchive" element={<NewsArchive />} />

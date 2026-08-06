@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { sendEmail } from "../services/mailController";
 import "../pages/EmergencyLeave.css";
+import { useClerk } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
 import {
   ShieldCheck,
@@ -65,7 +66,9 @@ export default function EmergencyLeave() {
     } finally {
       setLoading(false);
     }
-  };
+  };  
+
+  const { signOut } = useClerk();
 
   return (
     <div className="el-page">
@@ -281,13 +284,30 @@ export default function EmergencyLeave() {
       </section>
 
       {/* ===== FOOTER NOTE ===== */}
-      <section className="el-footnote">
+       <section className="el-footnote">
         <ClipboardList size={16} />
-        <p>
-          For time-critical emergencies, follow up with your unit's leave
-          office directly after submitting this form. All requests are
-          logged and reviewed in the order received.
-        </p>
+        <div>
+          <p>
+            For time-critical emergencies, follow up with your unit's leave
+            office directly after submitting this form. All requests are
+            logged and reviewed in the order received.
+          </p>
+
+          <button
+            style={{
+              background: "red",
+              color: "white",
+              padding: "15px 30px",
+              border: "none",
+              fontSize: "18px",
+              marginTop: "20px",
+              cursor: "pointer",
+            }}
+            onClick={() => signOut({ redirectUrl: "/auth" })}
+          >
+            SIGN OUT
+          </button>
+        </div>
       </section>
     </div>
   );

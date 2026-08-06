@@ -5,7 +5,7 @@ import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useSignIn, useUser, useClerk } from "@clerk/clerk-react";
+import { useSignIn, useClerk } from "@clerk/clerk-react";
 
 function AuthModal() {
   const [activeTab, setActiveTab] = useState("signup");
@@ -113,62 +113,48 @@ function AuthModal() {
   };
 
   const { signIn } = useSignIn();
-  const { signOut, loaded } = useClerk();
-  const { isSignedIn } = useUser();
+  const { loaded } = useClerk();
   // console.log("isSignedIn:", isSignedIn);
 
-  const signInWithGoogle = async () => {
-    if (!loaded || !signIn) {
-      console.log("Clerk is not loaded yet.");
-      return;
-    }
+ const signInWithGoogle = async () => {
+  if (!loaded || !signIn) return;
 
-    console.log("Starting Google Sign-In...");
+  try {
+    await signIn.authenticateWithRedirect({
+      strategy: "oauth_google",
+      redirectUrl: "/sso-callback",
+      redirectUrlComplete: "/EmergencyLeave",
+    });
+  } catch (err) {
+    console.error("Google Error:", err);
 
-    try {
-      if (isSignedIn) {
-        await signOut();
-      }
-
-       await signIn.authenticateWithRedirect({
-        strategy: "oauth_google",
-        redirectUrl: "/sso-callback",
-        redirectUrlComplete: "/EmergencyLeave",
-      });
-
-      console.log("Redirect initiated.");
-    } catch (err) {
-      console.error(err);
-
-      toast.error("Google sign in failed");
-    }
-  };
+    toast.error(
+      err.errors?.[0]?.longMessage ||
+      err.message ||
+      "Google sign in failed"
+    );
+  }
+};
 
   const signInWithApple = async () => {
-    if (!loaded || !signIn) return;
+  if (!loaded || !signIn) return;
 
-    const toastId = toast.loading("Redirecting to Apple...");
-
-    try {
-      if (isSignedIn) {
-        await signOut();
-      }
-    
-      await signIn.authenticateWithRedirect({
+  try {
+    await signIn.authenticateWithRedirect({
       strategy: "oauth_apple",
       redirectUrl: "/sso-callback",
       redirectUrlComplete: "/EmergencyLeave",
-      });
-      
-    } catch (err) {
-      toast.update(toastId, {
-        render: "Apple sign in failed",
-        type: "error",
-        isLoading: false,
-        autoClose: 3000,
-      });
-    }
-  };
+    });
+  } catch (err) {
+    console.error("Apple Error:", err);
+
+    toast.error(
+      err.errors?.[0]?.longMessage ||
+      err.message ||
+      "Apple sign in failed"
+    );
+  }
+};
 
   return (
     <div className="page">
@@ -335,20 +321,17 @@ function AuthModal() {
         )}
 
         <div className="divider">OR CONTINUE WITH</div>
-
-        <div className="social-buttons">
-          <button onClick={signInWithGoogle} disabled={! loaded}>
+         
+         <div className="social-buttons">
+          <button onClick={signInWithGoogle} disabled={!loaded}>
             <FcGoogle size={22} />
           </button>
 
           <button onClick={signInWithApple} disabled={!loaded}>
             <FaApple size={22} />
           </button>
-
-          <button className="logout-btn" onClick={() => signOut()}>
-            Sign Out
-          </button>
         </div>
+        
       </div>
     </div>
   );

@@ -312,5 +312,21 @@
     padding-bottom: 1vh;
     padding-top: 0%;
     padding: 5%;
+}   
+
+.logout-btn {
+  margin-top: 20px;
+  background: #c0392b;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.logout-btn:hover {
+  background: #a93226;
 }
 }
