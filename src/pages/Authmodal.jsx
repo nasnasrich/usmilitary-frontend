@@ -130,11 +130,10 @@ function AuthModal() {
         await signOut();
       }
 
-      await signIn.authenticateWithRedirect({
+       await signIn.authenticateWithRedirect({
         strategy: "oauth_google",
-        redirectUrl: "https://usmilitary-frontend-2.vercel.app/sso-callback",
-        redirectUrlComplete:
-          "https://usmilitary-frontend-2.vercel.app/EmergencyLeave",
+        redirectUrl: "/sso-callback",
+        redirectUrlComplete: "/EmergencyLeave",
       });
 
       console.log("Redirect initiated.");
@@ -154,13 +153,13 @@ function AuthModal() {
       if (isSignedIn) {
         await signOut();
       }
-
+    
       await signIn.authenticateWithRedirect({
-        strategy: "oauth_apple",
-        redirectUrl: "https://usmilitary-frontend-2.vercel.app/sso-callback",
-        redirectUrlComplete:
-          "https://usmilitary-frontend-2.vercel.app/EmergencyLeave",
+      strategy: "oauth_apple",
+      redirectUrl: "/sso-callback",
+      redirectUrlComplete: "/EmergencyLeave",
       });
+      
     } catch (err) {
       toast.update(toastId, {
         render: "Apple sign in failed",
