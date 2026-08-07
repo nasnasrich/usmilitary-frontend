@@ -11,6 +11,7 @@ import EmergencyLeave from "./pages/EmergencyLeave";
 import AboutUs from "./pages/AboutUs";
 import NewsArchive from "./pages/NewsArchive";
 import ScrollToTop from "./ScrollToTop";
+import LocationPage from "./pages/LocationPage";
 
 function App() {
  
@@ -32,6 +33,7 @@ function App() {
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/NewsArchive" element={<NewsArchive />} />
+          <Route path="/LocationPage" element={<LocationPage />} />
         </Routes>
       </main>
 

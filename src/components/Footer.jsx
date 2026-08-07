@@ -1,5 +1,6 @@
 import React from "react";
 import "./Footer.css";
+import { Link } from "react-router-dom";
 
 import {
   Star,
@@ -19,12 +20,10 @@ import {
 } from "react-icons/fa";
 
 const FOOTER_LINKS = [
-  "HOME",
-  "ABOUT",
-  "INFORMATION",
-  "BLOG",
-  "GALLERY",
-  "CONTACTS",
+  { label: "HOME", path: "/", type: "route" },
+  { label: "ABOUT", path: "/about", type: "route" },
+  { label: "INFORMATION", path: "/information", type: "route" },
+  { label: "CONTACTS", path: "mailto:troopportal@gmail.com", type: "mail" },
 ];
 
 const scrollToTop = () => {
@@ -61,48 +60,47 @@ export default function Footer() {
 
       <div className="mf-footer-grid">
         <div className="mf-footer-nav">
-          {FOOTER_LINKS.map((link) => (
-            <a href="#!" key={link}>
-              {link}
-            </a>
-          ))}
+          {FOOTER_LINKS.map((link) =>
+            link.type === "mail" ? (
+              <a href={link.path} key={link.label}>
+                {link.label}
+              </a>
+            ) : (
+              <Link to={link.path} key={link.label}>
+                {link.label}
+              </Link>
+            )
+          )}
         </div>
 
         <div className="mf-footer-block">
           <h5>LOCATION</h5>
 
-          <p>
+           <p>
             <MapPin size={13} />
-            8901 Marmora Road,
+            1725 Massachusetts Avenue NW, Suite 310,
             <br />
-            Glasgow, D04 89GR
+            Washington, DC 20036
           </p>
-
-          <a href="#!" className="mf-map-link">
+          <Link to="/LocationPage" className="mf-map-link">
             Map
-          </a>
+          </Link>
         </div>
 
         <div className="mf-footer-block">
-          <h5>CONTACTS</h5>
+        <h5>CONTACTS</h5>
 
-          <p>
-            <Phone size={13} />
-            Telephone: +1 800 123 1234
-          </p>
+        <p>
+          <Mail size={13} />
+          info@troopportal.com
+        </p>
 
-          <p>
-            <Printer size={13} />
-            Fax: +1 800 123 1234
-          </p>
+        <a href="mailto:troopportal@gmail.com?subject=Inquiry from US Leave Portal" className="mf-map-link">
+         Send a Message
+      </a>
+      </div>
 
-          <p>
-            <Mail size={13} />
-            mail@demosite.com
-          </p>
-        </div>
-
-        <div className="mf-footer-block">
+        {/* <div className="mf-footer-block">
           <h5>FOLLOW US</h5>
 
           <div className="mf-socials">
@@ -126,14 +124,18 @@ export default function Footer() {
               <FaLinkedinIn />
             </a>
           </div>
+        </div> */}
+
+        <div className="mf-footer-block">
+          <h5>OFFICE HOURS</h5>
+          <p>Monday - Friday</p>
+          <p>8:00 AM - 5:00 PM</p>
+          <p>Closed on Federal Holidays</p>
         </div>
       </div>
 
       <div className="mf-footer-bottom">
-        <p>
-    © 2026 US Leave Portal Demo. This is a practice project created for web 
-    development and testing purposes only. Not an official government website.
-  </p>
+        <p>2026 US Leave Portal. All rights reserved.</p>
       </div>
     </footer>
   );
