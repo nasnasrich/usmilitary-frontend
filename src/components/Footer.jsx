@@ -21,8 +21,8 @@ import {
 
 const FOOTER_LINKS = [
   { label: "HOME", path: "/", type: "route" },
-  { label: "ABOUT", path: "/about", type: "route" },
-  { label: "INFORMATION", path: "/information", type: "route" },
+  { label: "ABOUT", path: "/AboutUS", type: "route" },
+  { label: "INFORMATION", path: "/NewsArchive", type: "route" },
   { label: "CONTACTS", path: "mailto:troopportal@gmail.com", type: "mail" },
 ];
 
@@ -78,7 +78,9 @@ export default function Footer() {
 
            <p>
             <MapPin size={13} />
-            1725 Massachusetts Avenue NW, Suite 310,
+            1725 Massachusetts
+            <br />
+            Avenue NW, Suite 310,
             <br />
             Washington, DC 20036
           </p>
