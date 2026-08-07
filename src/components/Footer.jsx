@@ -78,9 +78,7 @@ export default function Footer() {
 
            <p>
             <MapPin size={13} />
-            1725 Massachusetts
-            <br />
-            Avenue NW, Suite 310,
+            1725 Massachusetts Avenue NW, Suite 310,
             <br />
             Washington, DC 20036
           </p>

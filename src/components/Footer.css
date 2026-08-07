@@ -186,4 +186,8 @@
     /* text-align: center; */
     width: 100%;
   }
+
+  .mf-footer-block p{
+    width: 45%;
+  }
 }
