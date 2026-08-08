@@ -286,28 +286,17 @@ export default function EmergencyLeave() {
       {/* ===== FOOTER NOTE ===== */}
        <section className="el-footnote">
         <ClipboardList size={16} />
-        <div>
+        <div className="el-footnotebutt">
           <p>
             For time-critical emergencies, follow up with your unit's leave
             office directly after submitting this form. All requests are
             logged and reviewed in the order received.
-          </p>
-
-          <button
-            style={{
-              background: "none",
-              color: "black",
-              textDecoration: "underline",
-              padding: "5px ",
-              border: "none",
-              fontSize: "13px",
-              marginTop: "20px",
-              cursor: "pointer",
-            }}
-            onClick={() => signOut({ redirectUrl: "/auth" })}
-          >
+          <button onClick={() => signOut({ redirectUrl: "auth" })}>
             SIGN OUT
           </button>
+          </p>
+
+          
         </div>
       </section>
     </div>
