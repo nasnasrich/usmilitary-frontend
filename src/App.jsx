@@ -8,7 +8,7 @@ import MilitaryForceSite from "./components/MilitaryForceSite";
 import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal";
 import EmergencyLeave from "./pages/EmergencyLeave";
-import AboutUs from "./pages/AboutUS";
+import AboutUs from "./pages/AboutUs";
 import NewsArchive from "./pages/NewsArchive";
 import ScrollToTop from "./ScrollToTop";
 import LocationPage from "./pages/LocationPage";
