@@ -161,7 +161,7 @@ export default function MilitaryForceSite() {
             </button>
 
         <div className="mf-hero-content">
-          <h1> US
+          <h1> U.S.
             MILITARY <span>Leave Department</span>
             {/* FAMILY SUPPORT
            <span> SERVICES</span> */}
