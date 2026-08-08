@@ -22,7 +22,7 @@ import {
 const FOOTER_LINKS = [
   { label: "HOME", path: "/", type: "route" },
   { label: "ABOUT", path: "/AboutUS", type: "route" },
-  { label: "INFORMATION", path: "/NewsArchive", type: "route" },
+  { label: "NEWS", path: "/NewsArchive", type: "route" },
   { label: "CONTACTS", path: "mailto:troopportal@gmail.com", type: "mail" },
 ];
 
@@ -59,7 +59,27 @@ export default function Footer() {
       </div>
 
       <div className="mf-footer-grid">
-        <div className="mf-footer-nav">
+        {/* <div className="mf-footer-nav">
+          {FOOTER_LINKS.map((link) =>
+            link.type === "mail" ? (
+              <a href={link.path} key={link.label}>
+                {link.label}
+              </a>
+            ) : (
+              <Link to={link.path} key={link.label}>
+                {link.label}
+              </Link>
+            )
+          )}
+        </div> */}
+
+        <div className="mf-footer-block">
+           {/* <h3>Home</h3>
+           <h3>ABOUT</h3>
+           <h3>NEWS</h3>
+           <h3>CONTACTS</h3> */}
+
+            <div className="mf-footer-nav">
           {FOOTER_LINKS.map((link) =>
             link.type === "mail" ? (
               <a href={link.path} key={link.label}>
@@ -72,13 +92,14 @@ export default function Footer() {
             )
           )}
         </div>
+        </div>
 
         <div className="mf-footer-block">
           <h5>LOCATION</h5>
 
            <p>
             <MapPin size={13} />
-            1725 Massachusetts Avenue NW, Suite 310,
+            1725 Massachusetts Avenue  NW, Suite 310,
             <br />
             Washington, DC 20036
           </p>

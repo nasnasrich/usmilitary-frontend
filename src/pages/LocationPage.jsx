@@ -32,7 +32,7 @@ export default function LocationPage() {
             <Mail size={18} />
             <div>
               <h4>Email</h4>
-              <p>mail@demosite.com</p>
+              <p>info@troopportal.com</p>
             </div>
           </div>
         </div>

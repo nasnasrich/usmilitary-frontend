@@ -84,6 +84,10 @@
   gap: 10px;
 }
 
+/* .mf-footer-nav {
+  background-color: aquamarine;
+} */
+
 .mf-footer-nav a {
   font-size: 12px;
   letter-spacing: 1px;
@@ -93,6 +97,15 @@
 
 .mf-footer-nav a:hover {
   color: #c0392b;
+}
+
+
+.mf-footer-block {
+  gap: none;
+  margin: 0%;
+  padding: 0%;
+  width: 60%;
+  /* background-color: aqua; */
 }
 
 .mf-footer-block h5 {
@@ -118,7 +131,7 @@
   font-size: 11.5px;
   margin-bottom: 8px;
   display: flex;
-  gap: 8px;
+  gap: 2px;
   align-items: flex-start;
   color: #b7b59f;
 }
@@ -212,6 +225,6 @@
   }
 
   .mf-footer-block p{
-    width: 40%;
+    width:90%;
   }
 }
