@@ -99,8 +99,8 @@ export default function Footer() {
 
            <p>
             <MapPin size={13} />
-            1725 Massachusetts Avenue  NW, Suite 310,
-            <br />
+            1725 Massachusetts Avenue <br /> NW, Suite 310,
+            {/* <br /> */}
             Washington, DC 20036
           </p>
           <Link to="/LocationPage" className="mf-map-link">
