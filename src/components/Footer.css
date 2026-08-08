@@ -102,6 +102,18 @@
   margin-bottom: 14px;
 }
 
+.mf-footer-block h5:hover {
+  color: red;
+}
+
+.mf-footer-block p:hover {
+  color: red;
+}
+
+.mf-footer-block MapPin:hover {
+  color: blue;
+}
+
 .mf-footer-block p {
   font-size: 11.5px;
   margin-bottom: 8px;
@@ -182,12 +194,24 @@
     grid-template-columns: 1fr;
   }
 
+  .mf-back-top {
+    background-color: transparent;
+    border: 1px solid red;
+    padding: 6px;
+  }
+
+  .mf-back-top:hover{
+    background-color: transparent;
+    border: 1px solid red;
+  }
+
+  
   .mf-footer-top {
     /* text-align: center; */
     width: 100%;
   }
 
   .mf-footer-block p{
-    width: 25%;
+    width: 40%;
   }
 }

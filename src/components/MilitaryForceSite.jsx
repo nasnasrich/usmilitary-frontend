@@ -285,7 +285,11 @@ export default function MilitaryForceSite() {
             active-duty service members across all branches...
           </p>    
 
-          <Link to="/AboutUs"><button className="mf-btn mf-btn--dark">more</button></Link>
+          <Link to="/AboutUs">
+           <button className="mf-btn mf-btn--dark">
+             more
+           </button>
+          </Link>
           
         </div>
 
@@ -562,6 +566,7 @@ const CSS = `
   border-radius: 4px; /* Optional */
 }
 .mf-welcome p { font-size: 12.5px; color: #55523f; margin-bottom: 16px; }
+
 
 .mf-news li { padding: 12px 0; border-bottom: 1px dashed #cfc4a6; }
 .mf-news li p { font-size: 12px; font-weight: 600; color: #40402a; }
