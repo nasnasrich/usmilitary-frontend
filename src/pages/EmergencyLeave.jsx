@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { sendEmail } from "../services/mailController";
+// import { sendEmail } from "../services/mailController";
 import "../pages/EmergencyLeave.css";
 import { useClerk } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
@@ -39,34 +39,56 @@ export default function EmergencyLeave() {
   };
 
   const submitForm = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await sendEmail("template_8g70j6o", form);
-      await sendEmail("template_5ko1z39", form);
-      toast.success("Your emergency leave application has been submitted successfully."
-        );
-      setForm({
-        employeeName: "",
-        employeeAddress: "",
-        employeeId: "",
-        currentLocation: "",
-        applicantName: "",
-        applicantAddress: "",
-        phone: "",
-        email: "",
-        reason: "",
-      });
-    } catch (err) {
-      console.error("EmailJS Error:", err);
+  e.preventDefault();
+  setLoading(true);
 
-      toast.error(
-        err.text || err.message || "Unknown error"
+  try {
+    const response = await fetch(
+      `${import.meta.env.VITE_BACKEND_URL}/api/mail/emergency-leave`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(
+        data.message || "Failed to submit application"
       );
-    } finally {
-      setLoading(false);
     }
-  };  
+
+    toast.success(
+      "Your emergency leave application has been submitted successfully."
+    );
+
+    setForm({
+      employeeName: "",
+      employeeAddress: "",
+      employeeId: "",
+      currentLocation: "",
+      applicantName: "",
+      applicantAddress: "",
+      phone: "",
+      email: "",
+      reason: "",
+    });
+
+  } catch (err) {
+    console.error("Emergency Leave Error:", err);
+
+    toast.error(
+      err.message || "Unable to submit your application."
+    );
+
+  } finally {
+    setLoading(false);
+  }
+};
 
   const { signOut } = useClerk();
 
