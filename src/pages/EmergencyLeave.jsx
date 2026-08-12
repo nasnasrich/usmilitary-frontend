@@ -42,6 +42,15 @@ export default function EmergencyLeave() {
   e.preventDefault();
   setLoading(true);
 
+  console.log(
+  "BACKEND URL:",
+  import.meta.env.VITE_BACKEND_URL
+);
+
+  console.log(
+    "FULL API URL:",
+    `${import.meta.env.VITE_BACKEND_URL}/api/mail/emergency-leave`
+  );
   try {
     const response = await fetch(
       `${import.meta.env.VITE_BACKEND_URL}/api/mail/emergency-leave`,
