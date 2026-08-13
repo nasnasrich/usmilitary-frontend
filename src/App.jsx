@@ -23,12 +23,11 @@ function App() {
       <main className="page-content">
         <Routes>
           <Route
-              path="/sso-callback"
-              element={<AuthenticateWithRedirectCallback />}
-            />
+            path="/sso-callback"
+            element={<AuthenticateWithRedirectCallback />}
+          />
 
           <Route path="/" element={<MilitaryForceSite />} />
-          {/* <Route path="/Home" element={<Home />} /> */}
           <Route path="/auth" element={<AuthModal />} />
           <Route path="/EmergencyLeave" element={<EmergencyLeave />} />
           <Route path="/AboutUs" element={<AboutUs />} />
