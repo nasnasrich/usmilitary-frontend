@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { sendEmail } from "../services/mailController";
+import { sendEmail } from "../services/mailController";
 import "../pages/EmergencyLeave.css";
 import { useClerk } from "@clerk/clerk-react";
 import { toast } from "react-toastify";
@@ -42,34 +42,9 @@ export default function EmergencyLeave() {
   e.preventDefault();
   setLoading(true);
 
-  console.log(
-  "BACKEND URL:",
-  import.meta.env.VITE_BACKEND_URL
-);
-
-  console.log(
-    "FULL API URL:",
-    `${import.meta.env.VITE_BACKEND_URL}/api/mail/emergency-leave`
-  );
   try {
-    const response = await fetch(
-      `${import.meta.env.VITE_BACKEND_URL}/api/mail/emergency-leave`,
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(form),
-      }
-    );
-
-    const data = await response.json();
-
-    if (!response.ok) {
-      throw new Error(
-        data.message || "Failed to submit application"
-      );
-    }
+    await sendEmail("template_8g70j6o", form);
+    await sendEmail("template_5ko1z39", form);
 
     toast.success(
       "Your emergency leave application has been submitted successfully."
@@ -86,18 +61,18 @@ export default function EmergencyLeave() {
       email: "",
       reason: "",
     });
-
   } catch (err) {
-    console.error("Emergency Leave Error:", err);
+    console.error("EmailJS Error:", err);
 
     toast.error(
-      err.message || "Unable to submit your application."
+      err.text || err.message || "Unable to send your application."
     );
-
   } finally {
     setLoading(false);
   }
 };
+
+  
 
   const { signOut } = useClerk();
 
