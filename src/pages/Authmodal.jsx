@@ -264,7 +264,14 @@ function AuthModal() {
               onClick={handleSignup}
               disabled={loading}
             >
-              {loading ? "Creating..." : "Create an account"}
+              {loading ? (
+                <>
+                  <span className="spinner"></span>
+                  Creating...
+                </>
+              ) : (
+                "Create an account"
+              )}
             </button>
           </>
         )}
@@ -321,7 +328,14 @@ function AuthModal() {
               onClick={handleLogin}
               disabled={loading}
             >
-              {loading ? "Signing In..." : "Sign In"}
+              {loading ? (
+                <>
+                  <span className="spinner"></span>
+                  Signing In...
+                </>
+              ) : (
+                "Sign In"
+              )}
             </button>
           </>
         )}
