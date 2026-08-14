@@ -101,6 +101,19 @@ export default function EmergencyLeave() {
 
   const { signOut } = useClerk();
 
+const handleSignOut = async () => {
+  try {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    await signOut();
+
+    window.location.href = "/auth";
+  } catch (error) {
+    console.error("Sign out failed:", error);
+  }
+};
+
   return (
     <div className="el-page">
       {/* ===== HERO ===== */}
@@ -322,7 +335,7 @@ export default function EmergencyLeave() {
             For time-critical emergencies, follow up with your unit's leave
             office directly after submitting this form. All requests are
             logged and reviewed in the order received.
-          <button onClick={() => signOut({ redirectUrl: "auth" })}>
+          <button type="button" onClick={handleSignOut}>
             SIGN OUT
           </button>
           </p>

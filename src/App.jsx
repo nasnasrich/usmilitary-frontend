@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import { AuthenticateWithRedirectCallback } from "@clerk/clerk-react";
 
 import Navbar from "./Navbar";
-// import Home from "./components/Home";
 import MilitaryForceSite from "./components/MilitaryForceSite";
 import Footer from "./components/Footer";
 import AuthModal from "./pages/Authmodal";
@@ -14,7 +13,6 @@ import ScrollToTop from "./ScrollToTop";
 import LocationPage from "./pages/LocationPage";
 
 function App() {
- 
   return (
     <div className="app-wrapper">
       <Navbar />

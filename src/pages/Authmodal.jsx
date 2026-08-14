@@ -1,13 +1,11 @@
-// import { useState, useEffect } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./Authmodal.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import { useSignIn, useClerk } from "@clerk/clerk-react";
-// import { useSignIn, useUser, useClerk } from "@clerk/clerk-react";
+import { useSignIn, useUser, useClerk } from "@clerk/clerk-react";
 
 function AuthModal() {
   const [activeTab, setActiveTab] = useState("signup");
@@ -116,13 +114,13 @@ function AuthModal() {
 
   const { signIn } = useSignIn();
   const { loaded } = useClerk();
-  // const { isSignedIn } = useUser();
+  const { isSignedIn } = useUser();
   
-//   useEffect(() => {
-//   if (isSignedIn) {
-//     navigate("/EmergencyLeave");
-//   }
-// }, [isSignedIn, navigate]);
+  useEffect(() => {
+  if (isSignedIn) {
+    navigate("/EmergencyLeave");
+  }
+}, [isSignedIn, navigate]);
 
  const signInWithGoogle = async () => {
   if (!loaded || !signIn) return;
