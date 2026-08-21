@@ -4,8 +4,9 @@ import { FcGoogle } from "react-icons/fc";
 import { FaApple, FaEye, FaEyeSlash } from "react-icons/fa";
 import axios from "axios";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useSignIn, useUser, useClerk } from "@clerk/clerk-react";
+import { Link, useNavigate } from "react-router-dom";
 
 function AuthModal() {
   const [activeTab, setActiveTab] = useState("signup");
@@ -315,12 +316,17 @@ function AuthModal() {
             </div>
 
             <div className="remember">
-              <label>
+              <label style={{textDecoration:"underline"}}>
                 <input type="checkbox" />
                 Remember me
               </label>
 
-              <a href="/">Forgot Password?</a>
+              <Link
+                  to="/forgot-password"
+                  style={{ textDecoration: "underline" }}
+                >
+                  Forgot Password?
+                </Link>
             </div>
 
             <button

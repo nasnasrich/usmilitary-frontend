@@ -287,7 +287,7 @@ export default function MilitaryForceSite() {
 
           <Link to="/AboutUs">
            <button className="mf-btn mf-btn--dark">
-             more
+             more »
            </button>
           </Link>
           
@@ -407,14 +407,16 @@ const CSS = `
   letter-spacing: 1px;
   font-weight: 600;
 }
+
 .mf-root .mf-btn--primary {
   background: var(--mf-red);
   color: #fff;
   border: 1px solid white;
-  border-radius: 4%;
+  border-radius: 1%;
   background: transparent;
-  box-shadow: 2px 2px 2px rgb(0, 0, 0);
-  padding: 4px 4px;
+  box-shadow: 2px 2px  rgb(0, 0, 0);
+  padding: 3px 3px;
+// background: var(--mf-red-dark);
 }
 .mf-btn--primary:hover { background: var(--mf-red-dark);  }
 .mf-btn--dark { background: var(--mf-near-black); color: #fff; padding: 10px 24px;}
@@ -567,6 +569,14 @@ const CSS = `
 }
 .mf-welcome p { font-size: 12.5px; color: #55523f; margin-bottom: 16px; }
 
+
+.mf-root .mf-btn--dark {
+  background: var(--mf-near-black);
+  color: #fff;
+  padding: 3px px3;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
 
 .mf-news li { padding: 12px 0; border-bottom: 1px dashed #cfc4a6; }
 .mf-news li p { font-size: 12px; font-weight: 600; color: #40402a; }

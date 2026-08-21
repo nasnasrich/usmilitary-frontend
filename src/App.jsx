@@ -12,6 +12,8 @@ import NewsArchive from "./pages/NewsArchive";
 import ScrollToTop from "./ScrollToTop";
 import LocationPage from "./pages/LocationPage";
 
+import ForgotPassword from "./components/ForgotPassword";
+
 function App() {
   return (
     <div className="app-wrapper">
@@ -31,6 +33,7 @@ function App() {
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/NewsArchive" element={<NewsArchive />} />
           <Route path="/LocationPage" element={<LocationPage />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
         </Routes>
       </main>
 
