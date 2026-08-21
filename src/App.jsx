@@ -13,6 +13,7 @@ import ScrollToTop from "./ScrollToTop";
 import LocationPage from "./pages/LocationPage";
 
 import ForgotPassword from "./components/ForgotPassword";
+import ResetPassword from "./components/ResetPassword";
 
 function App() {
   return (
@@ -34,6 +35,8 @@ function App() {
           <Route path="/NewsArchive" element={<NewsArchive />} />
           <Route path="/LocationPage" element={<LocationPage />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />}
+/>
         </Routes>
       </main>
 
