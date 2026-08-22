@@ -11,7 +11,9 @@ export default function Navbar() {
                     <Star size={16} strokeWidth={2} fill="#c0392b" color="#c0392b" />
                   </span>
                   <div className="mf-logo-text">
+                    {/* <span className="mf-logo-title">TROOP PORTAL</span> */}
                     <span className="mf-logo-title">MILITARY FORCE</span>
+                    {/* <span className="mf-logo-sub">SERVICE & SUPPORT</span> */}
                     <span className="mf-logo-sub">SAVING THE PEACE</span>
                   </div>
                 </div>
