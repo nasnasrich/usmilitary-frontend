@@ -316,10 +316,10 @@ function AuthModal() {
             </div>
 
             <div className="remember">
-              <label style={{textDecoration:"underline"}}>
+              {/* <label style={{textDecoration:"underline"}}>
                 <input type="checkbox" />
                 Remember me
-              </label>
+              </label> */}
 
               <Link
                   to="/forgot-password"
