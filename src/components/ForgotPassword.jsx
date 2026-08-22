@@ -27,7 +27,7 @@ function ForgotPassword() {
       });
 
       toast.update(toastId, {
-        render: "If this email exists, a password reset link has been sent.",
+        render: "Password reset link sent.",
         type: "success",
         isLoading: false,
         autoClose: 4000,
