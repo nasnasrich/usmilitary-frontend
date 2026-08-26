@@ -309,6 +309,7 @@ export default function MilitaryForceSite() {
           </Link>
         </div>
 
+
         <div className="mf-bottom-col mf-why">
           <h3>CORE VALUES</h3>
           <ul>
@@ -568,6 +569,11 @@ const CSS = `
   border-radius: 4px; /* Optional */
 }
 .mf-welcome p { font-size: 12.5px; color: #55523f; margin-bottom: 16px; }
+
+
+.mf-news-archive:hover{
+  text-decoration: underline 2px red;
+}
 
 
 .mf-root .mf-btn--dark {

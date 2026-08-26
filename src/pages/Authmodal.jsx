@@ -116,52 +116,48 @@ function AuthModal() {
   const { signIn } = useSignIn();
   const { loaded } = useClerk();
   const { isSignedIn } = useUser();
-  
+
   useEffect(() => {
-  if (isSignedIn) {
-    navigate("/EmergencyLeave");
-  }
-}, [isSignedIn, navigate]);
+    if (isSignedIn) {
+      navigate("/EmergencyLeave");
+    }
+  }, [isSignedIn, navigate]);
 
- const signInWithGoogle = async () => {
-  if (!loaded || !signIn) return;
+  const signInWithGoogle = async () => {
+    if (!loaded || !signIn) return;
 
-  try {
-    await signIn.authenticateWithRedirect({
-      strategy: "oauth_google",
-      redirectUrl: "/sso-callback",
-      redirectUrlComplete: "/EmergencyLeave",
-    });
-  } catch (err) {
-    console.error("Google Error:", err);
+    try {
+      await signIn.authenticateWithRedirect({
+        strategy: "oauth_google",
+        redirectUrl: "/sso-callback",
+        redirectUrlComplete: "/EmergencyLeave",
+      });
+    } catch (err) {
+      console.error("Google Error:", err);
 
-    toast.error(
-      err.errors?.[0]?.longMessage ||
-      err.message ||
-      "Google sign in failed"
-    );
-  }
-};
+      toast.error(
+        err.errors?.[0]?.longMessage || err.message || "Google sign in failed",
+      );
+    }
+  };
 
   const signInWithApple = async () => {
-  if (!loaded || !signIn) return;
+    if (!loaded || !signIn) return;
 
-  try {
-    await signIn.authenticateWithRedirect({
-      strategy: "oauth_apple",
-      redirectUrl: "/sso-callback",
-      redirectUrlComplete: "/EmergencyLeave",
-    });
-  } catch (err) {
-    console.error("Apple Error:", err);
+    try {
+      await signIn.authenticateWithRedirect({
+        strategy: "oauth_apple",
+        redirectUrl: "/sso-callback",
+        redirectUrlComplete: "/EmergencyLeave",
+      });
+    } catch (err) {
+      console.error("Apple Error:", err);
 
-    toast.error(
-      err.errors?.[0]?.longMessage ||
-      err.message ||
-      "Apple sign in failed"
-    );
-  }
-};
+      toast.error(
+        err.errors?.[0]?.longMessage || err.message || "Apple sign in failed",
+      );
+    }
+  };
 
   return (
     <div className="page">
@@ -322,11 +318,15 @@ function AuthModal() {
               </label> */}
 
               <Link
-                  to="/forgot-password"
-                  style={{ textDecoration: "underline" }}
-                >
-                  Forgot Password?
-                </Link>
+                to="/forgot-password"
+                style={{
+                  textDecoration: "underline",
+                  textAlign: "end",
+                  width: "95%",
+                }}
+              >
+                Forgot Password?
+              </Link>
             </div>
 
             <button
@@ -347,8 +347,8 @@ function AuthModal() {
         )}
 
         <div className="divider">OR CONTINUE WITH</div>
-         
-         <div className="social-buttons">
+
+        <div className="social-buttons">
           <button onClick={signInWithGoogle} disabled={!loaded}>
             <FcGoogle size={22} />
           </button>
@@ -357,7 +357,6 @@ function AuthModal() {
             <FaApple size={22} />
           </button>
         </div>
-        
       </div>
     </div>
   );

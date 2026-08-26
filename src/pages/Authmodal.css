@@ -114,9 +114,11 @@ input {
   margin-top: 10px;
 }
 
-.remember label input{
+/* .remember label input{
   text-decoration: underline;
-}
+} */
+
+
 
 .divider {
   text-align: center;
