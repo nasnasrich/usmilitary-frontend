@@ -116,7 +116,7 @@ export default function Footer() {
           mail@troopportal.com
         </p>
 
-        <a href="mailto:troopportal@gmail.com?subject=Inquiry from US Leave Portal" className="mf-map-link">
+        <a href="mailto:mail@troopportal.com?subject=Inquiry from US Leave Portal" className="mf-map-link">
          Send a Message
       </a>
       </div>
