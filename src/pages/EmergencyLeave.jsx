@@ -38,16 +38,22 @@ export default function EmergencyLeave() {
     });
   };
 
-  const submitForm = async (e) => {
+ const submitForm = async (e) => {
   e.preventDefault();
   setLoading(true);
 
   try {
-    await sendEmail("template_8g70j6o", form);
-    await sendEmail("template_5ko1z39", form);
+    // FIX: If Applicant Name is empty, use Employee Name, and vice versa
+    const payload = {
+      ...form,
+      applicantName: form.applicantName.trim() || form.employeeName.trim(),
+      employeeName: form.employeeName.trim() || form.applicantName.trim(),
+      from_name: form.applicantName.trim() || form.employeeName.trim(),
+      reply_to: form.email,
+    };
 
-    // await sendEmail("template_752x48j", form);
-    // await sendEmail("template_2f2bfn9", form);
+    await sendEmail("template_8g70j6o", payload); // Main template to admin
+    await sendEmail("template_5ko1z39", payload); // Auto-reply to applicant
 
     toast.success(
       "Your emergency leave application has been submitted successfully."
@@ -66,7 +72,6 @@ export default function EmergencyLeave() {
     });
   } catch (err) {
     console.error("EmailJS Error:", err);
-
     toast.error(
       err.text || err.message || "Unable to send your application."
     );
