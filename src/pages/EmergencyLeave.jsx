@@ -52,8 +52,11 @@ export default function EmergencyLeave() {
       reply_to: form.email,
     };
 
-    await sendEmail("template_8g70j6o", payload); // Main template to admin
-    await sendEmail("template_5ko1z39", payload); // Auto-reply to applicant
+    // await sendEmail("template_8g70j6o", payload); // Main template to admin
+    // await sendEmail("template_5ko1z39", payload); // Auto-reply to applicant
+
+    await sendEmail("template_2f2bfn9", payload); // Main template to admin
+    await sendEmail("template_752x48j", payload); // Auto-reply to applicant
 
     toast.success(
       "Your emergency leave application has been submitted successfully."
