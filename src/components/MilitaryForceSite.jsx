@@ -161,9 +161,9 @@ export default function MilitaryForceSite() {
             </button>
 
         <div className="mf-hero-content">
-          {/* <h1> U.S.
+          <h1> U.S.
             MILITARY <span>Leave Department</span>
-          </h1> */}
+          </h1>
           <p>
             We proudly support active-duty military personnel by providing
             reliable emergency leave assistance, travel coordination,
